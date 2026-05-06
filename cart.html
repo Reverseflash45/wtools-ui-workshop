@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Cart</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/store.css">
+</head>
+<body>
+    <div class="store-container">
+        <header class="page-header">
+            <a href="product-detail.html" style="font-size: 20px;">←</a>
+            <h2 class="page-title">Cart</h2>
+        </header>
+
+        <div class="cart-item">
+            <div style="background: #333; width: 80px; height: 80px; border-radius: 8px;"></div>
+            <div class="cart-item-info">
+                <h4 class="cart-item-title">Adjustable Dumbbells Set</h4>
+                <p class="cart-item-price">Rp 899.000</p>
+                <div class="cart-qty-control">
+                    <button class="cart-qty-btn">-</button>
+                    <span style="font-size: 14px; font-weight: bold;">1</span>
+                    <button class="cart-qty-btn">+</button>
+                </div>
+            </div>
+            <button style="background: none; border: none; color: var(--text-muted); font-size: 16px; cursor: pointer; align-self: flex-start;">🗑</button>
+        </div>
+
+        <div class="cart-item">
+            <div style="background: #333; width: 80px; height: 80px; border-radius: 8px;"></div>
+            <div class="cart-item-info">
+                <h4 class="cart-item-title">Training Gloves Pro</h4>
+                <p class="cart-item-price">Rp 125.000</p>
+                <div class="cart-qty-control">
+                    <button class="cart-qty-btn">-</button>
+                    <span style="font-size: 14px; font-weight: bold;">2</span>
+                    <button class="cart-qty-btn">+</button>
+                </div>
+            </div>
+            <button style="background: none; border: none; color: var(--text-muted); font-size: 16px; cursor: pointer; align-self: flex-start;">🗑</button>
+        </div>
+
+        <h3 class="section-title" style="margin-top: 32px;">Order Summary</h3>
+        <div class="order-summary-box">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>Rp 1.149.000</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping Fee</span>
+                <span>Rp 40.000</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span>Rp 1.189.000</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-action-bar" style="justify-content: center;">
+        <button class="btn btn-primary" style="width: 100%;" onclick="window.location.href='checkout-delivery.html'">Proceed to Checkout</button>
+    </div>
+</body>
+</html>

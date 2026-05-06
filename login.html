@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Login</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+    <main class="auth-container">
+        <div class="auth-header">
+            <h1 class="splash-logo" style="font-size: 32px;">WTOOLS</h1>
+            <p class="splash-subtitle">FitGym Store & Academy</p>
+        </div>
+
+        <form id="mainLoginForm">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+            </div>
+
+            <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <div class="divider">Or continue with</div>
+
+        <button class="btn btn-outline" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+            <img src="assets/images/icons/google.svg" alt="G" width="20">
+            Continue with Google
+        </button>
+
+        <p class="bottom-link">Don't have an account? <a href="register.html">Register</a></p>
+    </main>
+
+    <script>
+        document.getElementById('mainLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('loginEmail').value;
+            const passwordInput = document.getElementById('loginPassword').value;
+
+            if (emailInput === 'okabe.mc2@gmail.com' && passwordInput === 'Rafirafifernandito') {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                window.location.href = 'home.html';
+            }
+        });
+    </script>
+</body>
+</html>

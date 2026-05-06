@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Article Detail</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/academy.css">
+</head>
+<body>
+    <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+        <a href="academy.html" style="font-size: 24px; color: white; background: rgba(0,0,0,0.5); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">←</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+        <a href="#" style="font-size: 20px; color: white; background: rgba(0,0,0,0.5); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🔖</a>
+    </div>
+
+    <div class="article-header-img" style="background: #333;"></div>
+
+    <div class="article-content">
+        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
+            <span style="background: rgba(230,0,0,0.1); color: var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">DEVELOPMENT</span>
+            <span style="color: var(--text-muted); font-size: 12px;">5 min read</span>
+        </div>
+
+        <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.3;">Advanced React Patterns: Building Scalable Applications</h1>
+        
+        <div class="article-content-body">
+            <p>React has evolved significantly since its inception, and with it, the patterns and practices for building scalable applications. In this comprehensive guide, we'll explore advanced React patterns that will help you write more maintainable and efficient code.</p>
+            
+            <h3 style="color: white; font-size: 18px; margin-top: 24px; margin-bottom: 12px;">Component Composition Patterns</h3>
+            <p>One of the most powerful aspects of React is its component composition model. Here are some advanced patterns you should know:</p>
+            
+            <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 16px;">
+                <li style="margin-bottom: 8px;"><strong style="color: white;">Render Props Pattern:</strong> Share code between components using a prop whose value is a function.</li>
+                <li style="margin-bottom: 8px;"><strong style="color: white;">Higher-Order Components (HOCs):</strong> Enhance components with additional functionality.</li>
+                <li style="margin-bottom: 8px;"><strong style="color: white;">Custom Hooks:</strong> Extract component logic into reusable functions.</li>
+            </ul>
+
+            <h3 style="color: white; font-size: 18px; margin-top: 24px; margin-bottom: 12px;">State Management Strategies</h3>
+            <p>Managing state effectively is crucial for scalable React applications. Consider these approaches:</p>
+            
+            <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 16px;">
+                <li style="margin-bottom: 8px;">Use local state for component-specific data that doesn't need to be shared.</li>
+                <li style="margin-bottom: 8px;">Implement Context API for medium-scale state sharing between components.</li>
+                <li style="margin-bottom: 8px;">Consider external state management libraries like Redux for complex applications.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - WTOOLS Admin</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-mode">
+    
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <a href="admin-dashboard.html" class="nav-link active">📊 Dashboard</a>
+        <a href="admin-products.html" class="nav-link">🛍️ Kelola Produk</a>
+        <a href="admin-articles.html" class="nav-link">📝 Kelola Artikel</a>
+        <a href="admin-users.html" class="nav-link">👥 Kelola Pengguna</a>
+        <a href="admin-transactions.html" class="nav-link">💰 Kelola Transaksi</a>
+        <div style="flex: 1;"></div>
+        <a href="admin-login.html" class="nav-link" style="color: #dc3545;">🚪 Logout</a>
+    </aside>
+
+    <main class="main-content">
+        <header class="header-admin">
+            <h1 class="admin-title">Dashboard Overview</h1>
+            <div class="admin-profile">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;">A</div>
+                <span style="font-size: 14px; font-weight: 600;">Admin Okabe</span>
+            </div>
+        </header>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <h3 class="stat-title">Total Pendapatan</h3>
+                <div class="stat-value">Rp 45.8M</div>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-title">Total Pesanan</h3>
+                <div class="stat-value">1,284</div>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-title">Total Pengguna</h3>
+                <div class="stat-value">8,492</div>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-title">Total Produk</h3>
+                <div class="stat-value">156</div>
+            </div>
+        </div>
+
+        <div class="admin-panel-card">
+            <div class="panel-header">
+                <h2 style="font-size: 18px;">Transaksi Terbaru</h2>
+                <a href="admin-transactions.html" style="color: var(--primary); font-size: 14px; text-decoration: none;">Lihat Semua</a>
+            </div>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID Pesanan</th>
+                        <th>Pelanggan</th>
+                        <th>Tanggal</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#ORD-2026-001</td>
+                        <td>Rafi Fernandito</td>
+                        <td>12 Mei 2026</td>
+                        <td style="font-weight: bold;">Rp 1.191.000</td>
+                        <td><span style="color: #007bff; background: rgba(0,123,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-2026-002</td>
+                        <td>Budi Santoso</td>
+                        <td>12 Mei 2026</td>
+                        <td style="font-weight: bold;">Rp 450.000</td>
+                        <td><span style="color: #28a745; background: rgba(40,167,69,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-2026-003</td>
+                        <td>Andi Wijaya</td>
+                        <td>11 Mei 2026</td>
+                        <td style="font-weight: bold;">Rp 2.450.000</td>
+                        <td><span style="color: #fd7e14; background: rgba(253,126,20,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">Processing</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</body>
+</html>

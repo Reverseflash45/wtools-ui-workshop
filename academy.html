@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Academy</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/store.css">
+    <link rel="stylesheet" href="assets/css/academy.css">
+</head>
+<body>
+    <div class="academy-container">
+        <header class="page-header">
+            <a href="home.html" style="font-size: 20px;">←</a>
+            <h2 class="page-title">WTools Academy</h2>
+            <a href="#" style="font-size: 20px;">🔔</a>
+        </header>
+
+        <div class="search-bar" style="margin-bottom: 24px;">
+            <span>🔍</span>
+            <input type="text" placeholder="Search courses, articles...">
+        </div>
+
+        <div class="filter-tabs">
+            <a href="#" class="tab-item active">Videos</a>
+            <a href="#" class="tab-item">Articles</a>
+            <a href="#" class="tab-item">Techniques</a>
+        </div>
+
+        <div class="video-card" onclick="window.location.href='video-tutorial.html'">
+            <div class="video-thumbnail">
+                <span class="badge badge-cancelled" style="position: absolute; top: 12px; left: 12px; background: var(--primary); color: white;">FEATURED</span>
+                <div class="play-btn">▶</div>
+                <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); padding: 4px 8px; border-radius: 4px; font-size: 10px;">12 min</span>
+            </div>
+            <div class="video-info">
+                <h3 class="video-title">Advanced Welding Techniques for Professionals</h3>
+                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Master the art of precision welding with expert tips and techniques.</p>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 32px;">
+            <h3>Latest Articles</h3>
+            <a href="#">See All</a>
+        </div>
+
+        <div class="article-card" onclick="window.location.href='article-detail.html'">
+            <div class="article-thumb"></div>
+            <div class="article-info">
+                <span class="article-category">SAFETY</span>
+                <h4 class="article-title">Essential Safety Equipment for Every Workshop</h4>
+                <span class="article-read-time">5 min read</span>
+            </div>
+        </div>
+
+        <div class="article-card" onclick="window.location.href='article-detail.html'">
+            <div class="article-thumb"></div>
+            <div class="article-info">
+                <span class="article-category">MAINTENANCE</span>
+                <h4 class="article-title">How to Maintain Your Tools for Longevity</h4>
+                <span class="article-read-time">3 min read</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

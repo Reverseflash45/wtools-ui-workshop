@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Artikel - WTOOLS Admin</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-mode">
+    
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <a href="admin-dashboard.html" class="nav-link">📊 Dashboard</a>
+        <a href="admin-products.html" class="nav-link">🛍️ Kelola Produk</a>
+        <a href="admin-articles.html" class="nav-link active">📝 Kelola Artikel</a>
+        <a href="admin-users.html" class="nav-link">👥 Kelola Pengguna</a>
+        <a href="admin-transactions.html" class="nav-link">💰 Kelola Transaksi</a>
+        <div style="flex: 1;"></div>
+        <a href="admin-login.html" class="nav-link" style="color: #dc3545;">🚪 Logout</a>
+    </aside>
+
+    <main class="main-content">
+        <header class="header-admin">
+            <h1 class="admin-title">Kelola Artikel (Academy)</h1>
+            <div class="admin-profile">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;">A</div>
+                <span style="font-size: 14px; font-weight: 600;">Admin Okabe</span>
+            </div>
+        </header>
+
+        <div class="admin-panel-card">
+            <div class="panel-header">
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <input type="text" placeholder="Cari judul artikel..." style="padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-dark); color: white; width: 300px;">
+                </div>
+                <button class="btn-add">+ Tulis Artikel</button>
+            </div>
+            
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Thumbnail</th>
+                        <th>Judul Artikel</th>
+                        <th>Kategori</th>
+                        <th>Tanggal Terbit</th>
+                        <th>Views</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div style="width: 60px; height: 40px; background: #333; border-radius: 4px;"></div></td>
+                        <td style="font-weight: 600;">Advanced React Patterns: Building Scalable Applications</td>
+                        <td><span style="color: var(--primary); font-size: 12px; font-weight: 600;">DEVELOPMENT</span></td>
+                        <td>02 Mei 2026</td>
+                        <td>1,204</td>
+                        <td>
+                            <button class="action-btn btn-edit">Edit</button>
+                            <button class="action-btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div style="width: 60px; height: 40px; background: #333; border-radius: 4px;"></div></td>
+                        <td style="font-weight: 600;">Essential Safety Equipment for Every Workshop</td>
+                        <td><span style="color: var(--primary); font-size: 12px; font-weight: 600;">SAFETY</span></td>
+                        <td>28 Apr 2026</td>
+                        <td>845</td>
+                        <td>
+                            <button class="action-btn btn-edit">Edit</button>
+                            <button class="action-btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><div style="width: 60px; height: 40px; background: #333; border-radius: 4px;"></div></td>
+                        <td style="font-weight: 600;">How to Maintain Your Tools for Longevity</td>
+                        <td><span style="color: var(--primary); font-size: 12px; font-weight: 600;">MAINTENANCE</span></td>
+                        <td>15 Apr 2026</td>
+                        <td>3,492</td>
+                        <td>
+                            <button class="action-btn btn-edit">Edit</button>
+                            <button class="action-btn btn-delete">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</body>
+</html>

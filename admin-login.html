@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Admin Portal</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-mode">
+    <div class="login-admin-wrapper">
+        <div class="login-admin-box">
+            <h1 class="sidebar-logo" style="margin-bottom: 16px;">WTOOLS<br><span style="font-size: 16px; color: var(--text-main); font-weight: 500; letter-spacing: 0;">Admin Portal</span></h1>
+            
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label>Email Admin</label>
+                    <input type="email" id="email" class="form-control" placeholder="Masukkan email admin" required>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 32px;">
+                    <label>Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Masukkan password admin" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login to Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('email').value;
+            const passwordInput = document.getElementById('password').value;
+
+            if (emailInput === 'okabe.mc2@gmail.com' && passwordInput === 'Rafirafifernandito') {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                alert('Akses Ditolak! Email atau Password Admin tidak valid.');
+            }
+        });
+    </script>
+</body>
+</html>

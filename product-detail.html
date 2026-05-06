@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Product Detail</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/store.css">
+</head>
+<body>
+    
+    <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+        <a href="store-trending.html" style="font-size: 24px; color: white; background: rgba(0,0,0,0.5); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">←</a>
+    </div>
+    <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+        <a href="#" style="font-size: 20px; color: white; background: rgba(0,0,0,0.5); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">➦</a>
+    </div>
+
+    <div style="background: #333; width: 100%; height: 300px;"></div>
+
+    <div class="product-info-container">
+        <h1 class="product-title">Adjustable Dumbbells Set</h1>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Dumbbell yang dapat disesuaikan beratnya untuk latihan kekuatan dan pembentukan otot di rumah.</p>
+        
+        <div class="product-price-row">
+            <span class="current-price">Rp 899.000</span>
+            <span class="original-price">Rp 1.200.000</span>
+        </div>
+
+        <h3 class="section-title">Benefits</h3>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <span class="benefit-icon">💪</span>
+                <span>Biceps & Triceps</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">👕</span>
+                <span>Chest & Shoulders</span>
+            </div>
+            <div class="benefit-item">
+                <span class="benefit-icon">🔥</span>
+                <span>Core Strength</span>
+            </div>
+        </div>
+
+        <h3 class="section-title">Specifications</h3>
+        <table class="specs-table">
+            <tr>
+                <td>Weight Range</td>
+                <td>5kg - 25kg per dumbbell</td>
+            </tr>
+            <tr>
+                <td>Material</td>
+                <td>Cast Iron & Rubber</td>
+            </tr>
+            <tr>
+                <td>Handle</td>
+                <td>Anti-slip Grip</td>
+            </tr>
+            <tr>
+                <td>Dimensions</td>
+                <td>40cm x 15cm</td>
+            </tr>
+        </table>
+
+        <h3 class="section-title">You may also like</h3>
+        <div class="product-grid" style="margin-bottom: 24px;">
+            <div class="product-card" onclick="window.location.href='product-detail.html'">
+                <div style="background: #333; height: 100px; border-radius: 8px; margin-bottom: 8px;"></div>
+                <h4>Resistance Bands</h4>
+                <p>Rp 299.000</p>
+            </div>
+            <div class="product-card" onclick="window.location.href='product-detail.html'">
+                <div style="background: #333; height: 100px; border-radius: 8px; margin-bottom: 8px;"></div>
+                <h4>Kettlebell Set</h4>
+                <p>Rp 599.000</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-action-bar">
+        <div class="qty-control">
+            <button class="qty-btn" onclick="document.getElementById('qty').innerText = Math.max(1, parseInt(document.getElementById('qty').innerText) - 1)">-</button>
+            <span id="qty" style="font-weight: bold;">1</span>
+            <button class="qty-btn" onclick="document.getElementById('qty').innerText = parseInt(document.getElementById('qty').innerText) + 1">+</button>
+        </div>
+        <button class="btn btn-primary btn-add-cart" onclick="window.location.href='cart.html'">Add to Cart</button>
+    </div>
+
+</body>
+</html>

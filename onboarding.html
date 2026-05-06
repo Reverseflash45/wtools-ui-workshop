@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Onboarding</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+    <main class="auth-container">
+        <a href="login.html" class="skip-btn">Skip</a>
+
+        <!-- Slide 1 -->
+        <div class="onboarding-slide active" id="slide-1">
+            <img src="assets/images/placeholder-1.jpg" alt="Gym" class="onboarding-image">
+            <h2 class="onboarding-title">Build Strength.<br>Build Confidence.</h2>
+            <p class="onboarding-desc">Mulai perjalanan fitness kamu dengan alat terbaik.</p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="onboarding-slide" id="slide-2">
+            <img src="assets/images/placeholder-2.jpg" alt="Academy" class="onboarding-image">
+            <h2 class="onboarding-title">Learn With WTools<br>Academy</h2>
+            <p class="onboarding-desc">Tutorial, tips cepat, dan program latihan dalam satu aplikasi.</p>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="onboarding-slide" id="slide-3">
+            <img src="assets/images/placeholder-3.jpg" alt="Shop" class="onboarding-image">
+            <h2 class="onboarding-title">Everything You Need.<br>Anytime.</h2>
+            <p class="onboarding-desc">Belanja alat gym premium dengan mudah dan cepat.</p>
+        </div>
+
+        <div class="slide-indicators">
+            <span class="dot active" id="dot-1"></span>
+            <span class="dot" id="dot-2"></span>
+            <span class="dot" id="dot-3"></span>
+        </div>
+
+        <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">Next</button>
+    </main>
+
+    <script src="assets/js/onboarding.js"></script>
+</body>
+</html>

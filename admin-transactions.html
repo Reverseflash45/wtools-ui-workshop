@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Transaksi - WTOOLS Admin</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="admin-mode">
+    
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <a href="admin-dashboard.html" class="nav-link">📊 Dashboard</a>
+        <a href="admin-products.html" class="nav-link">🛍️ Kelola Produk</a>
+        <a href="admin-articles.html" class="nav-link">📝 Kelola Artikel</a>
+        <a href="admin-users.html" class="nav-link">👥 Kelola Pengguna</a>
+        <a href="admin-transactions.html" class="nav-link active">💰 Kelola Transaksi</a>
+        <div style="flex: 1;"></div>
+        <a href="admin-login.html" class="nav-link" style="color: #dc3545;">🚪 Logout</a>
+    </aside>
+
+    <main class="main-content">
+        <header class="header-admin">
+            <h1 class="admin-title">Kelola Transaksi</h1>
+            <div class="admin-profile">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px;">A</div>
+                <span style="font-size: 14px; font-weight: 600;">Admin Okabe</span>
+            </div>
+        </header>
+
+        <div class="admin-panel-card">
+            <div class="panel-header">
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <input type="text" placeholder="Cari ID Pesanan..." style="padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-dark); color: white; width: 250px;">
+                    <select style="padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-dark); color: white;">
+                        <option>Semua Status</option>
+                        <option>Processing</option>
+                        <option>Shipped</option>
+                        <option>Completed</option>
+                        <option>Cancelled</option>
+                    </select>
+                </div>
+            </div>
+            
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID Pesanan</th>
+                        <th>Pelanggan</th>
+                        <th>Tanggal Pembelian</th>
+                        <th>Metode Bayar</th>
+                        <th>Total Harga</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 600;">#ORD-2026-001</td>
+                        <td>Rafi Fernandito</td>
+                        <td>12 Mei 2026, 14:30</td>
+                        <td>Credit Card</td>
+                        <td style="color: var(--primary); font-weight: bold;">Rp 1.191.000</td>
+                        <td>
+                            <select style="padding: 4px 8px; border-radius: 4px; background: rgba(0,123,255,0.1); color: #007bff; border: 1px solid #007bff; font-weight: 600; font-size: 12px; outline: none;">
+                                <option>Processing</option>
+                                <option selected>Shipped</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="action-btn btn-edit">Cetak Resi</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">#ORD-2026-002</td>
+                        <td>Budi Santoso</td>
+                        <td>12 Mei 2026, 09:15</td>
+                        <td>Bank Transfer</td>
+                        <td style="color: var(--primary); font-weight: bold;">Rp 450.000</td>
+                        <td>
+                            <select style="padding: 4px 8px; border-radius: 4px; background: rgba(40,167,69,0.1); color: #28a745; border: 1px solid #28a745; font-weight: 600; font-size: 12px; outline: none;">
+                                <option>Processing</option>
+                                <option>Shipped</option>
+                                <option selected>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="action-btn btn-edit">Cetak Resi</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">#ORD-2026-003</td>
+                        <td>Andi Wijaya</td>
+                        <td>11 Mei 2026, 16:45</td>
+                        <td>e-Wallet</td>
+                        <td style="color: var(--primary); font-weight: bold;">Rp 2.450.000</td>
+                        <td>
+                            <select style="padding: 4px 8px; border-radius: 4px; background: rgba(253,126,20,0.1); color: #fd7e14; border: 1px solid #fd7e14; font-weight: 600; font-size: 12px; outline: none;">
+                                <option selected>Processing</option>
+                                <option>Shipped</option>
+                                <option>Completed</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="action-btn btn-edit">Cetak Resi</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</body>
+</html>
