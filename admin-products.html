@@ -6,18 +6,77 @@
     <title>Kelola Produk - WTOOLS Admin</title>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/admin.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            width: 400px;
+            border: 1px solid var(--border-color);
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-dark);
+            color: white;
+        }
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 24px;
+        }
+    </style>
 </head>
 <body class="admin-mode">
     
     <aside class="sidebar">
         <div class="sidebar-logo">WTOOLS</div>
-        <a href="admin-dashboard.html" class="nav-link">📊 Dashboard</a>
-        <a href="admin-products.html" class="nav-link active">🛍️ Kelola Produk</a>
-        <a href="admin-articles.html" class="nav-link">📝 Kelola Artikel</a>
-        <a href="admin-users.html" class="nav-link">👥 Kelola Pengguna</a>
-        <a href="admin-transactions.html" class="nav-link">💰 Kelola Transaksi</a>
+        <a href="admin-dashboard.html" class="nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+            Dashboard
+        </a>
+        <a href="admin-products.html" class="nav-link active">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            Kelola Produk
+        </a>
+        <a href="admin-articles.html" class="nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Kelola Artikel
+        </a>
+        <a href="admin-users.html" class="nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            Kelola Pengguna
+        </a>
+        <a href="admin-transactions.html" class="nav-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            Kelola Transaksi
+        </a>
         <div style="flex: 1;"></div>
-        <a href="admin-login.html" class="nav-link" style="color: #dc3545;">🚪 Logout</a>
+        <a href="admin-login.html" class="nav-link" style="color: #dc3545;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 10px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            Logout
+        </a>
     </aside>
 
     <main class="main-content">
@@ -32,9 +91,9 @@
         <div class="admin-panel-card">
             <div class="panel-header">
                 <div style="display: flex; gap: 16px; align-items: center;">
-                    <input type="text" placeholder="Cari produk..." style="padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-dark); color: white; width: 300px;">
+                    <input type="text" id="searchProduct" placeholder="Cari produk..." style="padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-dark); color: white; width: 300px;">
                 </div>
-                <button class="btn-add">+ Tambah Produk</button>
+                <button class="btn-add" onclick="openModal()">+ Tambah Produk</button>
             </div>
             
             <table class="admin-table">
@@ -48,55 +107,158 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><div style="width: 40px; height: 40px; background: #333; border-radius: 4px;"></div></td>
-                        <td style="font-weight: 600;">Adjustable Dumbbells Set</td>
-                        <td>Chest & Arms</td>
-                        <td style="color: var(--primary); font-weight: bold;">Rp 899.000</td>
-                        <td>45</td>
-                        <td>
-                            <button class="action-btn btn-edit">Edit</button>
-                            <button class="action-btn btn-delete">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div style="width: 40px; height: 40px; background: #333; border-radius: 4px;"></div></td>
-                        <td style="font-weight: 600;">Premium Yoga Mat</td>
-                        <td>Core & Abs</td>
-                        <td style="color: var(--primary); font-weight: bold;">Rp 180.000</td>
-                        <td>120</td>
-                        <td>
-                            <button class="action-btn btn-edit">Edit</button>
-                            <button class="action-btn btn-delete">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div style="width: 40px; height: 40px; background: #333; border-radius: 4px;"></div></td>
-                        <td style="font-weight: 600;">Squat Pad Pro</td>
-                        <td>Legs & Glutes</td>
-                        <td style="color: var(--primary); font-weight: bold;">Rp 89.000</td>
-                        <td>8</td>
-                        <td>
-                            <button class="action-btn btn-edit">Edit</button>
-                            <button class="action-btn btn-delete">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><div style="width: 40px; height: 40px; background: #333; border-radius: 4px;"></div></td>
-                        <td style="font-weight: 600;">Whey Protein Isolate</td>
-                        <td>Nutrition</td>
-                        <td style="color: var(--primary); font-weight: bold;">Rp 850.000</td>
-                        <td>0 <span style="color: #dc3545; font-size: 10px; margin-left: 4px;">(Habis)</span></td>
-                        <td>
-                            <button class="action-btn btn-edit">Edit</button>
-                            <button class="action-btn btn-delete">Hapus</button>
-                        </td>
-                    </tr>
+                <tbody id="productTableBody">
                 </tbody>
             </table>
         </div>
     </main>
 
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <h3 id="modalTitle" style="margin-top: 0; margin-bottom: 20px;">Tambah Produk</h3>
+            <input type="hidden" id="productId">
+            <div class="form-group">
+                <label>URL Foto Produk</label>
+                <input type="text" id="productImg" placeholder="https://example.com/image.jpg">
+            </div>
+            <div class="form-group">
+                <label>Nama Produk</label>
+                <input type="text" id="productName" required>
+            </div>
+            <div class="form-group">
+                <label>Kategori</label>
+                <select id="productCategory">
+                    <option value="Chest & Arms">Chest & Arms</option>
+                    <option value="Core & Abs">Core & Abs</option>
+                    <option value="Legs & Glutes">Legs & Glutes</option>
+                    <option value="Nutrition">Nutrition</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Harga (Rp)</label>
+                <input type="number" id="productPrice" required>
+            </div>
+            <div class="form-group">
+                <label>Stok</label>
+                <input type="number" id="productStock" required>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-add" style="background: #6c757d;" onclick="closeModal()">Batal</button>
+                <button class="btn-add" onclick="saveProduct()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const initialProducts = [
+            { id: 1, name: "Adjustable Dumbbells Set", category: "Chest & Arms", price: 899000, stock: 45, img: "https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=100" },
+            { id: 2, name: "Premium Yoga Mat", category: "Core & Abs", price: 180000, stock: 120, img: "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=100" },
+            { id: 3, name: "Squat Pad Pro", category: "Legs & Glutes", price: 89000, stock: 8, img: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=100" },
+            { id: 4, name: "Whey Protein Isolate", category: "Nutrition", price: 850000, stock: 0, img: "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=100" }
+        ];
+
+        if (!localStorage.getItem('wtools_products')) {
+            localStorage.setItem('wtools_products', JSON.stringify(initialProducts));
+        }
+
+        function getProducts() {
+            return JSON.parse(localStorage.getItem('wtools_products'));
+        }
+
+        function renderProducts(filterText = "") {
+            const products = getProducts();
+            const tbody = document.getElementById('productTableBody');
+            tbody.innerHTML = "";
+
+            const filtered = products.filter(p => p.name.toLowerCase().includes(filterText.toLowerCase()));
+
+            filtered.forEach(p => {
+                const tr = document.createElement('tr');
+                const stockDisplay = p.stock == 0 ? `0 <span style="color: #dc3545; font-size: 10px; margin-left: 4px;">(Habis)</span>` : p.stock;
+                
+                tr.innerHTML = `
+                    <td><img src="${p.img}" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;" onerror="this.src='https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=100'"></td>
+                    <td style="font-weight: 600;">${p.name}</td>
+                    <td>${p.category}</td>
+                    <td style="color: var(--primary); font-weight: bold;">Rp ${p.price.toLocaleString('id-ID')}</td>
+                    <td>${stockDisplay}</td>
+                    <td>
+                        <button class="action-btn btn-edit" onclick="editProduct(${p.id})">Edit</button>
+                        <button class="action-btn btn-delete" onclick="deleteProduct(${p.id})">Hapus</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function openModal() {
+            document.getElementById('productId').value = "";
+            document.getElementById('productImg').value = "";
+            document.getElementById('productName').value = "";
+            document.getElementById('productCategory').value = "Chest & Arms";
+            document.getElementById('productPrice').value = "";
+            document.getElementById('productStock').value = "";
+            document.getElementById('modalTitle').innerText = "Tambah Produk";
+            document.getElementById('productModal').style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = "none";
+        }
+
+        function saveProduct() {
+            const id = document.getElementById('productId').value;
+            const img = document.getElementById('productImg').value || "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=100";
+            const name = document.getElementById('productName').value;
+            const category = document.getElementById('productCategory').value;
+            const price = parseInt(document.getElementById('productPrice').value) || 0;
+            const stock = parseInt(document.getElementById('productStock').value) || 0;
+
+            if (!name) return alert("Nama produk wajib diisi!");
+
+            let products = getProducts();
+
+            if (id) {
+                products = products.map(p => p.id == id ? { ...p, name, category, price, stock, img } : p);
+            } else {
+                const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+                products.push({ id: newId, name, category, price, stock, img });
+            }
+
+            localStorage.setItem('wtools_products', JSON.stringify(products));
+            closeModal();
+            renderProducts();
+        }
+
+        function editProduct(id) {
+            const p = getProducts().find(prod => prod.id == id);
+            if (!p) return;
+
+            document.getElementById('productId').value = p.id;
+            document.getElementById('productImg').value = p.img;
+            document.getElementById('productName').value = p.name;
+            document.getElementById('productCategory').value = p.category;
+            document.getElementById('productPrice').value = p.price;
+            document.getElementById('productStock').value = p.stock;
+            document.getElementById('modalTitle').innerText = "Edit Produk";
+            document.getElementById('productModal').style.display = "flex";
+        }
+
+        function deleteProduct(id) {
+            if (confirm("Apakah Anda yakin ingin menghapus produk ini?")) {
+                let products = getProducts().filter(p => p.id != id);
+                localStorage.setItem('wtools_products', JSON.stringify(products));
+                renderProducts();
+            }
+        }
+
+        document.getElementById('searchProduct').addEventListener('input', (e) => {
+            renderProducts(e.target.value);
+        });
+
+        window.onload = () => {
+            renderProducts();
+        };
+    </script>
 </body>
 </html>

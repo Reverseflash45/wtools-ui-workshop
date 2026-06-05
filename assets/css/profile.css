@@ -1,42 +1,64 @@
 .profile-container {
-    padding: 20px 20px 80px 20px;
+    padding: 32px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-link {
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-card);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.settings-link:hover {
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 .profile-header-card {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
     background-color: var(--bg-card);
-    padding: 20px;
+    padding: 24px;
     border-radius: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    border: 1px solid var(--border-color);
 }
 
 .profile-avatar {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     object-fit: cover;
-    background-color: var(--bg-dark);
+    border: 2px solid var(--border-color);
 }
 
 .profile-info h3 {
-    font-size: 18px;
-    margin-bottom: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: var(--text-main);
 }
 
 .profile-info p {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
+    margin: 0;
 }
 
 .menu-section {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .menu-section-title {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
     color: var(--text-muted);
     margin-bottom: 12px;
     text-transform: uppercase;
@@ -47,47 +69,68 @@
     background-color: var(--bg-card);
     border-radius: 12px;
     overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
 .menu-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
+    padding: 18px 24px;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-main);
+    text-decoration: none;
     font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
 }
 
 .menu-item:last-child {
     border-bottom: none;
 }
 
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
 .menu-item-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .menu-icon {
-    font-size: 18px;
     color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-icon {
+    font-size: 20px;
+    color: var(--text-muted);
+    line-height: 1;
 }
 
 .btn-logout {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
     padding: 16px;
     border-radius: 12px;
-    background-color: rgba(230, 0, 0, 0.1);
+    background-color: rgba(230, 0, 0, 0.05);
     color: var(--primary);
     border: 1px solid var(--primary);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: rgba(230, 0, 0, 0.1);
 }
 
 .order-card {

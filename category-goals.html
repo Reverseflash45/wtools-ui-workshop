@@ -10,70 +10,80 @@
     <link rel="stylesheet" href="assets/css/store.css">
 </head>
 <body>
-    <div class="store-container">
-        <header class="page-header">
-            <h2 class="page-title">Choose Your Body Goal</h2>
-        </header>
 
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Customize your journey</p>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+            </a>
+            <a href="store-trending.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>Trending</span>
+            </a>
+            <a href="category-goals.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                <span>Categories</span>
+            </a>
+            <a href="wishlist.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Wishlist</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+            </a>
+                       <a href="transaction-history.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span>Histori Transaksi</span>
+</a>
+        </nav>
+    </aside>
 
-        <div class="goal-card" onclick="window.location.href='category-detail.html'">
-            <div style="background: #333; width: 60px; height: 60px; border-radius: 8px;"></div>
-            <div class="goal-card-text">
-                <h4>Chest & Arms</h4>
-                <p>Build upper body strength</p>
+    <main class="main-content">
+        <div class="store-container" style="padding: 32px; max-width: 900px; margin: 0 auto;">
+            <header class="page-header" style="margin-bottom: 8px;">
+                <h2 class="page-title" style="font-size: 24px; font-weight: 700; margin: 0;">Choose Your Body Goal</h2>
+            </header>
+
+            <p style="color: var(--text-muted); font-size: 14px; margin: 0 0 32px 0;">Customize your journey</p>
+
+            <div class="goal-card" onclick="window.location.href='category-detail.html'" style="display: flex; align-items: center; gap: 20px; background-color: var(--bg-card); padding: 16px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border-color); cursor: pointer;">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=150&auto=format&fit=crop" alt="Chest & Arms" style="width: 65px; height: 65px; border-radius: 8px; object-fit: cover;">
+                <div class="goal-card-text">
+                    <h4 style="font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">Chest & Arms</h4>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 0;">Build upper body strength</p>
+                </div>
             </div>
-        </div>
 
-        <div class="goal-card" onclick="window.location.href='category-detail.html'">
-            <div style="background: #333; width: 60px; height: 60px; border-radius: 8px;"></div>
-            <div class="goal-card-text">
-                <h4>Legs & Glutes</h4>
-                <p>Develop lower body power</p>
+            <div class="goal-card" onclick="window.location.href='category-detail.html'" style="display: flex; align-items: center; gap: 20px; background-color: var(--bg-card); padding: 16px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border-color); cursor: pointer;">
+                <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=150&auto=format&fit=crop" alt="Legs & Glutes" style="width: 65px; height: 65px; border-radius: 8px; object-fit: cover;">
+                <div class="goal-card-text">
+                    <h4 style="font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">Legs & Glutes</h4>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 0;">Develop lower body power</p>
+                </div>
             </div>
-        </div>
 
-        <div class="goal-card" onclick="window.location.href='category-detail.html'">
-            <div style="background: #333; width: 60px; height: 60px; border-radius: 8px;"></div>
-            <div class="goal-card-text">
-                <h4>Core & Abs</h4>
-                <p>Strengthen your midsection</p>
+            <div class="goal-card" onclick="window.location.href='category-detail.html'" style="display: flex; align-items: center; gap: 20px; background-color: var(--bg-card); padding: 16px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border-color); cursor: pointer;">
+                <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=150&auto=format&fit=crop" alt="Core & Abs" style="width: 65px; height: 65px; border-radius: 8px; object-fit: cover;">
+                <div class="goal-card-text">
+                    <h4 style="font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">Core & Abs</h4>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 0;">Strengthen your midsection</p>
+                </div>
             </div>
-        </div>
 
-        <div class="goal-card" onclick="window.location.href='category-detail.html'">
-            <div style="background: #333; width: 60px; height: 60px; border-radius: 8px;"></div>
-            <div class="goal-card-text">
-                <h4>Back & Shoulders</h4>
-                <p>Improve posture and width</p>
+            <div class="goal-card" onclick="window.location.href='category-detail.html'" style="display: flex; align-items: center; gap: 20px; background-color: var(--bg-card); padding: 16px; border-radius: 12px; margin-bottom: 24px; border: 1px solid var(--border-color); cursor: pointer;">
+                <img src="https://images.unsplash.com/photo-1605296867304-46d5465a25f1?w=150&auto=format&fit=crop" alt="Back & Shoulders" style="width: 65px; height: 65px; border-radius: 8px; object-fit: cover;">
+                <div class="goal-card-text">
+                    <h4 style="font-size: 16px; font-weight: 700; margin: 0 0 4px 0;">Back & Shoulders</h4>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 0;">Improve posture and width</p>
+                </div>
             </div>
+            
+            <button class="btn btn-outline" style="margin-top: 8px; padding: 14px 28px; font-weight: 700; font-size: 13px; width: auto; cursor: pointer;">ALL CATEGORIES</button>
         </div>
-        
-        <button class="btn btn-outline" style="margin-top: 16px;">ALL CATEGORY</button>
+    </main>
 
-    </div>
-
-    <nav class="bottom-nav">
-        <a href="home.html" class="nav-item">
-            <span>🏠</span>
-            Home
-        </a>
-        <a href="store-trending.html" class="nav-item">
-            <span>🔥</span>
-            Trending
-        </a>
-        <a href="category-goals.html" class="nav-item active">
-            <span>🗂️</span>
-            Categories
-        </a>
-        <a href="wishlist.html" class="nav-item">
-            <span>❤️</span>
-            Wishlist
-        </a>
-        <a href="profile.html" class="nav-item">
-            <span>👤</span>
-            Profile
-        </a>
-    </nav>
 </body>
 </html>

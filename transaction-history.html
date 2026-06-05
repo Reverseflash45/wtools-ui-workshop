@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Histori Transaksi</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        body {
+            background-color: var(--bg-dark, #121212);
+            color: var(--text-main, #ffffff);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR STYLES --- */
+        .sidebar {
+            width: 240px;
+            background-color: var(--bg-card, #1e1e1e);
+            border-right: 1px solid var(--border-color, #333);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary, #e60000);
+            padding: 0 24px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0 16px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-muted, #aaaaaa);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main, #ffffff);
+        }
+        .nav-item.active {
+            background-color: rgba(230, 0, 0, 0.1);
+            color: var(--primary, #e60000);
+        }
+
+        /* --- MAIN CONTENT & HISTORY STYLES --- */
+        .main-content {
+            margin-left: 240px;
+            flex: 1;
+            padding: 40px;
+            background-color: var(--bg-dark, #121212);
+            box-sizing: border-box;
+        }
+        .history-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .btn-back {
+            color: var(--text-main);
+            background-color: var(--bg-card);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+        .btn-back:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .page-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        /* Filters */
+        .status-filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+        .filter-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .filter-btn:hover {
+            border-color: var(--text-muted);
+            color: var(--text-main);
+        }
+        .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* Transaction Cards */
+        .tx-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .tx-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+        }
+        .tx-date-id {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .tx-date {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        .tx-id {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .tx-status {
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .status-success { background: rgba(40, 167, 69, 0.1); color: #28a745; }
+        .status-shipping { background: rgba(0, 123, 255, 0.1); color: #007bff; }
+        .status-cancelled { background: rgba(220, 53, 69, 0.1); color: #dc3545; }
+
+        .tx-body {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .tx-product-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+        }
+        .tx-product-info {
+            flex: 1;
+        }
+        .tx-product-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+        }
+        .tx-product-qty {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+        }
+        .tx-product-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0;
+        }
+        .tx-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+        .tx-total-label {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        .tx-total-amount {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .tx-actions {
+            display: flex;
+            gap: 12px;
+        }
+        .btn-action {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary { background-color: var(--primary); color: white; }
+        .btn-outline { background-color: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { background-color: rgba(255,255,255,0.05); }
+
+        /* Khusus untuk status batal */
+        .cancelled-text { opacity: 0.6; text-decoration: line-through; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+            </a>
+            <a href="store-trending.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>Trending</span>
+            </a>
+            <a href="category-goals.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                <span>Categories</span>
+            </a>
+            <a href="wishlist.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Wishlist</span>
+
+            <a href="profile.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+            </a>
+                        </a>
+            <a href="transaction-history.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Histori Transaksi</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="history-container">
+            
+            <header class="page-header">
+                <a href="profile.html" class="btn-back">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </a>
+                <h2 class="page-title">Histori Transaksi</h2>
+            </header>
+
+            <div class="status-filters">
+                <button class="filter-btn active" onclick="filterData(this)">Semua</button>
+                <button class="filter-btn" onclick="filterData(this)">Berlangsung</button>
+                <button class="filter-btn" onclick="filterData(this)">Selesai</button>
+                <button class="filter-btn" onclick="filterData(this)">Dibatalkan</button>
+            </div>
+
+            <div class="tx-card">
+                <div class="tx-header">
+                    <div class="tx-date-id">
+                        <span class="tx-date">12 Mei 2026</span>
+                        <span class="tx-id">#ORD-2026-001</span>
+                    </div>
+                    <div class="tx-status status-success">Selesai</div>
+                </div>
+                <div class="tx-body">
+                    <img src="https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=150&auto=format&fit=crop" alt="Adjustable Dumbbells" class="tx-product-img">
+                    <div class="tx-product-info">
+                        <h4 class="tx-product-name">Adjustable Dumbbells Set (25kg)</h4>
+                        <p class="tx-product-qty">1 Barang x Rp 899.000</p>
+                        <p class="tx-product-price">Rp 899.000</p>
+                    </div>
+                </div>
+                <div class="tx-footer">
+                    <div>
+                        <div class="tx-total-label">Total Belanja</div>
+                        <div class="tx-total-amount">Rp 939.000</div>
+                    </div>
+                    <div class="tx-actions">
+                        <button class="btn-action btn-outline">Lihat Detail</button>
+                        <button class="btn-action btn-primary">Beli Lagi</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tx-card">
+                <div class="tx-header">
+                    <div class="tx-date-id">
+                        <span class="tx-date">10 Mei 2026</span>
+                        <span class="tx-id">#ORD-2026-002</span>
+                    </div>
+                    <div class="tx-status status-shipping">Dikirim</div>
+                </div>
+                <div class="tx-body">
+                    <img src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=150&auto=format&fit=crop" alt="Yoga Mat" class="tx-product-img">
+                    <div class="tx-product-info">
+                        <h4 class="tx-product-name">Premium Yoga Mat Extra Thick</h4>
+                        <p class="tx-product-qty">1 Barang x Rp 180.000</p>
+                        <p class="tx-product-price">Rp 180.000</p>
+                    </div>
+                </div>
+                <div class="tx-footer">
+                    <div>
+                        <div class="tx-total-label">Total Belanja</div>
+                        <div class="tx-total-amount">Rp 205.000</div>
+                    </div>
+                    <div class="tx-actions">
+                        <button class="btn-action btn-primary">Lacak Pesanan</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tx-card">
+                <div class="tx-header">
+                    <div class="tx-date-id">
+                        <span class="tx-date">02 Mei 2026</span>
+                        <span class="tx-id">#ORD-2026-003</span>
+                    </div>
+                    <div class="tx-status status-cancelled">Dibatalkan</div>
+                </div>
+                <div class="tx-body">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=150&auto=format&fit=crop" alt="Kettlebell" class="tx-product-img cancelled-text">
+                    <div class="tx-product-info cancelled-text">
+                        <h4 class="tx-product-name">Cast Iron Kettlebell 16kg</h4>
+                        <p class="tx-product-qty">1 Barang x Rp 599.000</p>
+                        <p class="tx-product-price">Rp 599.000</p>
+                    </div>
+                </div>
+                <div class="tx-footer">
+                    <div>
+                        <div class="tx-total-label">Total Belanja</div>
+                        <div class="tx-total-amount cancelled-text">Rp 649.000</div>
+                    </div>
+                    <div class="tx-actions">
+                        <button class="btn-action btn-outline">Lihat Detail</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function filterData(element) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

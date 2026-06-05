@@ -10,70 +10,95 @@
     <link rel="stylesheet" href="assets/css/store.css">
 </head>
 <body>
-    <div class="store-container">
-        <header class="page-header">
-            <a href="home.html" style="font-size: 20px;">←</a>
-            <h2 class="page-title">Trending</h2>
-            <a href="search-empty.html" style="font-size: 20px;">🔍</a>
-        </header>
 
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">Popular picks for your workout</p>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+            </a>
+            <a href="store-trending.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>Trending</span>
+            </a>
+            <a href="category-goals.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                <span>Categories</span>
+            </a>
+            <a href="wishlist.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Wishlist</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+            </a>
+                       <a href="transaction-history.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span>Histori Transaksi</span>
+</a>
+        </nav>
+    </aside>
 
-        <div class="filter-tabs">
-            <a href="#" class="tab-item active">Popular</a>
-            <a href="#" class="tab-item">Best Seller</a>
-            <a href="#" class="tab-item">New Release</a>
+    <main class="main-content">
+        <div class="store-container" style="padding: 32px; max-width: 1100px; margin: 0 auto;">
+            <header class="page-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <a href="home.html" style="color: var(--text-main); display: flex; align-items: center; justify-content: center; background-color: var(--bg-card); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </a>
+                    <h2 class="page-title" style="margin: 0; font-size: 24px; font-weight: 700;">Trending</h2>
+                </div>
+                <a href="search-empty.html" style="color: var(--text-main); display: flex; align-items: center; justify-content: center; background-color: var(--bg-card); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+            </header>
+
+            <p style="color: var(--text-muted); font-size: 14px; margin: 0 0 24px 0;">Popular picks for your workout</p>
+
+            <div class="filter-tabs" style="margin-bottom: 32px; display: flex; gap: 12px;">
+                <a href="#" class="tab-item active" style="text-decoration: none;">Popular</a>
+                <a href="#" class="tab-item" style="text-decoration: none;">Best Seller</a>
+                <a href="#" class="tab-item" style="text-decoration: none;">New Release</a>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card" onclick="window.location.href='product-detail.html'">
+                    <button class="wishlist-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </button>
+                    <img src="https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=400&auto=format&fit=crop" alt="Adjustable Dumbbells" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; display: block;">
+                    <h4>Adjustable Dumbbells</h4>
+                    <p>Rp 899.000</p>
+                </div>
+                <div class="product-card" onclick="window.location.href='product-detail.html'">
+                    <button class="wishlist-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </button>
+                    <img src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=400&auto=format&fit=crop" alt="Premium Yoga Mat" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; display: block;">
+                    <h4>Premium Yoga Mat</h4>
+                    <p>Rp 180.000</p>
+                </div>
+                <div class="product-card" onclick="window.location.href='product-detail.html'">
+                    <button class="wishlist-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </button>
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&auto=format&fit=crop" alt="Resistance Bands" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; display: block;">
+                    <h4>Resistance Bands</h4>
+                    <p>Rp 150.000</p>
+                </div>
+                <div class="product-card" onclick="window.location.href='product-detail.html'">
+                    <button class="wishlist-btn" style="display: flex; align-items: center; justify-content: center;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </button>
+                    <img src="https://images.unsplash.com/photo-1620188467120-5042ed1eb5da?w=400&auto=format&fit=crop" alt="Weight Lifting Belt" style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; display: block;">
+                    <h4>Weight Lifting Belt</h4>
+                    <p>Rp 250.000</p>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div class="product-grid">
-            <div class="product-card" onclick="window.location.href='product-detail.html'">
-                <button class="wishlist-btn">♡</button>
-                <div style="background: #333; height: 120px; border-radius: 8px; margin-bottom: 8px;"></div>
-                <h4>Adjustable Dumbbells</h4>
-                <p>Rp 899.000</p>
-            </div>
-            <div class="product-card" onclick="window.location.href='product-detail.html'">
-                <button class="wishlist-btn">♡</button>
-                <div style="background: #333; height: 120px; border-radius: 8px; margin-bottom: 8px;"></div>
-                <h4>Premium Yoga Mat</h4>
-                <p>Rp 180.000</p>
-            </div>
-            <div class="product-card" onclick="window.location.href='product-detail.html'">
-                <button class="wishlist-btn">♡</button>
-                <div style="background: #333; height: 120px; border-radius: 8px; margin-bottom: 8px;"></div>
-                <h4>Resistance Bands</h4>
-                <p>Rp 150.000</p>
-            </div>
-            <div class="product-card" onclick="window.location.href='product-detail.html'">
-                <button class="wishlist-btn">♡</button>
-                <div style="background: #333; height: 120px; border-radius: 8px; margin-bottom: 8px;"></div>
-                <h4>Weight Lifting Belt</h4>
-                <p>Rp 250.000</p>
-            </div>
-        </div>
-    </div>
-
-    <nav class="bottom-nav">
-        <a href="home.html" class="nav-item">
-            <span>🏠</span>
-            Home
-        </a>
-        <a href="store-trending.html" class="nav-item active">
-            <span>🔥</span>
-            Trending
-        </a>
-        <a href="category-goals.html" class="nav-item">
-            <span>🗂️</span>
-            Categories
-        </a>
-        <a href="wishlist.html" class="nav-item">
-            <span>❤️</span>
-            Wishlist
-        </a>
-        <a href="profile.html" class="nav-item">
-            <span>👤</span>
-            Profile
-        </a>
-    </nav>
 </body>
 </html>

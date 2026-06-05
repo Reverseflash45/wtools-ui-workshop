@@ -6,47 +6,104 @@
     <title>WTOOLS - Article Detail</title>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/academy.css">
 </head>
 <body>
-    <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
-        <a href="academy.html" style="font-size: 24px; color: white; background: rgba(0,0,0,0.5); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">←</a>
-    </div>
-    <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
-        <a href="#" style="font-size: 20px; color: white; background: rgba(0,0,0,0.5); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%;">🔖</a>
-    </div>
 
-    <div class="article-header-img" style="background: #333;"></div>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+            </a>
+            <a href="store-trending.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>Trending</span>
+            </a>
+            <a href="category-goals.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                <span>Categories</span>
+            </a>
+            <a href="wishlist.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Wishlist</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </aside>
 
-    <div class="article-content">
-        <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
-            <span style="background: rgba(230,0,0,0.1); color: var(--primary); padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;">DEVELOPMENT</span>
-            <span style="color: var(--text-muted); font-size: 12px;">5 min read</span>
+    <main class="main-content">
+        <div class="academy-container" style="position: relative; padding: 0; max-width: 1000px;">
+            
+            <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+                <a href="academy.html" style="color: white; background: rgba(0,0,0,0.6); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </a>
+            </div>
+            
+            <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+                <a href="#" style="color: white; background: rgba(0,0,0,0.6); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); text-decoration: none;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </a>
+            </div>
+
+            <div class="article-header-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/14363531929075897389_0'); background-size: cover; background-position: center; height: 350px; border-radius: 0 0 12px 12px; border-bottom: 1px solid var(--border-color);"></div>
+
+            <div class="article-content" style="padding: 40px 32px;">
+                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 16px;">
+                    <span style="background: rgba(230,0,0,0.1); color: var(--primary); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">TRAINING</span>
+                    <span style="color: var(--text-muted); font-size: 13px;">5 min read</span>
+                </div>
+
+                <h1 style="font-size: 32px; font-weight: 800; margin: 0 0 24px 0; line-height: 1.3; color: var(--text-main);">Hypertrophy Training: Building Maximum Muscle Mass Effectively</h1>
+                
+                <div class="article-content-body" style="font-size: 15px; line-height: 1.7; color: #dddddd;">
+                    <p>Muscle hypertrophy has evolved significantly over the years, alongside patterns and training sciences aimed at building efficient applications for muscle mass. In this comprehensive academy guide, we will explore advanced hypertrophy mechanics that will help you gain sustainable power and write your own efficient training programs.</p>
+                    
+                    <h3 style="color: white; font-size: 20px; margin-top: 32px; margin-bottom: 12px; font-weight: 700;">Key Hypertrophy Stimulus Mechanisms</h3>
+                    <p>One of the most powerful rules of resistance training is its specific biomechanical models. Here are the core principles you should focus on to unlock your true body goals:</p>
+                    
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 24px;">
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--primary); font-weight: bold; line-height: 1;">•</span>
+                            <span><strong style="color: white;">Mechanical Tension:</strong> Heavy progressive overloading that stretches targeted muscle group fibers.</span>
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--primary); font-weight: bold; line-height: 1;">•</span>
+                            <span><strong style="color: white;">Metabolic Stress:</strong> High-repetition sets triggering blood pump accumulation inside the active cells.</span>
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--primary); font-weight: bold; line-height: 1;">•</span>
+                            <span><strong style="color: white;">Muscle Damage:</strong> Controlled micro-tears requiring proper execution and strategic recovery phases.</span>
+                        </li>
+                    </ul>
+
+                    <h3 style="color: white; font-size: 20px; margin-top: 32px; margin-bottom: 12px; font-weight: 700;">Nutritional State Management Strategies</h3>
+                    <p>Managing calories effectively is crucial for your muscle gains. Consider balancing these fundamental dietary patterns carefully:</p>
+                    
+                    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 24px;">
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--primary); font-weight: bold; line-height: 1;">•</span>
+                            <span>Maintain a slight caloric surplus for specific lean mass building goals without excessive fat gains.</span>
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--primary); font-weight: bold; line-height: 1;">•</span>
+                            <span>Distribute adequate daily high-quality protein macros smoothly between regular meal patterns.</span>
+                        </li>
+                        <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
+                            <span style="color: var(--primary); font-weight: bold; line-height: 1;">•</span>
+                            <span>Consider external supplements like Creatine for extra cellular ATP hydration and complex explosive volume support.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; line-height: 1.3;">Advanced React Patterns: Building Scalable Applications</h1>
-        
-        <div class="article-content-body">
-            <p>React has evolved significantly since its inception, and with it, the patterns and practices for building scalable applications. In this comprehensive guide, we'll explore advanced React patterns that will help you write more maintainable and efficient code.</p>
-            
-            <h3 style="color: white; font-size: 18px; margin-top: 24px; margin-bottom: 12px;">Component Composition Patterns</h3>
-            <p>One of the most powerful aspects of React is its component composition model. Here are some advanced patterns you should know:</p>
-            
-            <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 16px;">
-                <li style="margin-bottom: 8px;"><strong style="color: white;">Render Props Pattern:</strong> Share code between components using a prop whose value is a function.</li>
-                <li style="margin-bottom: 8px;"><strong style="color: white;">Higher-Order Components (HOCs):</strong> Enhance components with additional functionality.</li>
-                <li style="margin-bottom: 8px;"><strong style="color: white;">Custom Hooks:</strong> Extract component logic into reusable functions.</li>
-            </ul>
-
-            <h3 style="color: white; font-size: 18px; margin-top: 24px; margin-bottom: 12px;">State Management Strategies</h3>
-            <p>Managing state effectively is crucial for scalable React applications. Consider these approaches:</p>
-            
-            <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 16px;">
-                <li style="margin-bottom: 8px;">Use local state for component-specific data that doesn't need to be shared.</li>
-                <li style="margin-bottom: 8px;">Implement Context API for medium-scale state sharing between components.</li>
-                <li style="margin-bottom: 8px;">Consider external state management libraries like Redux for complex applications.</li>
-            </ul>
-        </div>
-    </div>
 </body>
 </html>

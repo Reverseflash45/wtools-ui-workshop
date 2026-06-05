@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,41 +7,238 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/auth.css">
+    <style>
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        .auth-container {
+            width: 100%;
+            max-width: 1100px;
+            height: 600px;
+            background-color: var(--bg-card);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+        }
+        .slides-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+        .onboarding-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .onboarding-slide.active {
+            display: flex;
+            animation: fadeInSlide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .slide-img-side {
+            flex: 1.2;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .onboarding-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 6s ease;
+        }
+        .onboarding-slide.active .onboarding-image {
+            transform: scale(1.1);
+        }
+        .slide-content-side {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            background-color: var(--bg-card);
+        }
+        .skip-btn {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            z-index: 10;
+        }
+        .skip-btn:hover {
+            color: var(--primary);
+        }
+        .onboarding-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 0 0 20px 0;
+            color: var(--text-main);
+        }
+        .onboarding-title span {
+            color: var(--primary);
+        }
+        .onboarding-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin: 0 0 60px 0;
+        }
+        .slide-controls {
+            margin-top: auto;
+        }
+        .slide-indicators {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .dot.active {
+            background-color: var(--primary);
+            width: 32px;
+            border-radius: 6px;
+        }
+        .btn-next {
+            width: 100%;
+            padding: 16px;
+            font-weight: 800;
+            font-size: 15px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .btn-next:active {
+            transform: translateY(2px);
+        }
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @media (max-width: 900px) {
+            .auth-container { flex-direction: column; height: auto; min-height: 700px; }
+            .slide-img-side { flex: none; height: 300px; }
+            .slide-content-side { padding: 40px 30px; }
+            .onboarding-title { font-size: 32px; }
+        }
+    </style>
 </head>
 <body>
+
     <main class="auth-container">
-        <a href="login.html" class="skip-btn">Skip</a>
+        <div class="slides-wrapper">
+            
+            <div class="onboarding-slide active" id="slide-1">
+                <div class="slide-img-side">
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop" alt="Gym" class="onboarding-image">
+                </div>
+                <div class="slide-content-side">
+                    <a href="login.html" class="skip-btn">Skip</a>
+                    <div>
+                        <h2 class="onboarding-title">Build Strength.<br><span>Build Confidence.</span></h2>
+                        <p class="onboarding-desc">Mulai perjalanan fitness kamu dengan peralatan gym terbaik yang dirancang khusus untuk performa maksimal di rumah.</p>
+                    </div>
+                    <div class="slide-controls">
+                        <div class="slide-indicators">
+                            <span class="dot active" id="dot-1-1"></span>
+                            <span class="dot" id="dot-1-2"></span>
+                            <span class="dot" id="dot-1-3"></span>
+                        </div>
+                        <button class="btn btn-primary btn-next" onclick="nextSlide()">Next Step</button>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Slide 1 -->
-        <div class="onboarding-slide active" id="slide-1">
-            <img src="assets/images/placeholder-1.jpg" alt="Gym" class="onboarding-image">
-            <h2 class="onboarding-title">Build Strength.<br>Build Confidence.</h2>
-            <p class="onboarding-desc">Mulai perjalanan fitness kamu dengan alat terbaik.</p>
+            <div class="onboarding-slide" id="slide-2">
+                <div class="slide-img-side">
+                    <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&auto=format&fit=crop" alt="Academy" class="onboarding-image">
+                </div>
+                <div class="slide-content-side">
+                    <a href="login.html" class="skip-btn">Skip</a>
+                    <div>
+                        <h2 class="onboarding-title">Learn With<br><span>WTools Academy</span></h2>
+                        <p class="onboarding-desc">Akses ratusan artikel tutorial, tips nutrisi cepat, dan panduan program latihan eksklusif secara instan.</p>
+                    </div>
+                    <div class="slide-controls">
+                        <div class="slide-indicators">
+                            <span class="dot" id="dot-2-1"></span>
+                            <span class="dot active" id="dot-2-2"></span>
+                            <span class="dot" id="dot-2-3"></span>
+                        </div>
+                        <button class="btn btn-primary btn-next" onclick="nextSlide()">Next Step</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="onboarding-slide" id="slide-3">
+                <div class="slide-img-side">
+                    <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=800&auto=format&fit=crop" alt="Shop" class="onboarding-image">
+                </div>
+                <div class="slide-content-side">
+                    <a href="login.html" class="skip-btn">Skip</a>
+                    <div>
+                        <h2 class="onboarding-title">Everything You Need.<br><span>Anytime.</span></h2>
+                        <p class="onboarding-desc">Dapatkan alat gym premium dengan transaksi mudah, pengiriman cepat, dan keamanan yang terjamin.</p>
+                    </div>
+                    <div class="slide-controls">
+                        <div class="slide-indicators">
+                            <span class="dot" id="dot-3-1"></span>
+                            <span class="dot" id="dot-3-2"></span>
+                            <span class="dot active" id="dot-3-3"></span>
+                        </div>
+                        <button class="btn btn-primary btn-next" onclick="nextSlide()">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <!-- Slide 2 -->
-        <div class="onboarding-slide" id="slide-2">
-            <img src="assets/images/placeholder-2.jpg" alt="Academy" class="onboarding-image">
-            <h2 class="onboarding-title">Learn With WTools<br>Academy</h2>
-            <p class="onboarding-desc">Tutorial, tips cepat, dan program latihan dalam satu aplikasi.</p>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="onboarding-slide" id="slide-3">
-            <img src="assets/images/placeholder-3.jpg" alt="Shop" class="onboarding-image">
-            <h2 class="onboarding-title">Everything You Need.<br>Anytime.</h2>
-            <p class="onboarding-desc">Belanja alat gym premium dengan mudah dan cepat.</p>
-        </div>
-
-        <div class="slide-indicators">
-            <span class="dot active" id="dot-1"></span>
-            <span class="dot" id="dot-2"></span>
-            <span class="dot" id="dot-3"></span>
-        </div>
-
-        <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">Next</button>
     </main>
 
-    <script src="assets/js/onboarding.js"></script>
+    <script>
+        const totalSlides = 3;
+        let currentSlide = sessionStorage.getItem('onboardingDesktopSlide') ? parseInt(sessionStorage.getItem('onboardingDesktopSlide')) : 1;
+
+        function updateUI() {
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide-${i}`).classList.remove('active');
+            }
+            document.getElementById(`slide-${currentSlide}`).classList.add('active');
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                sessionStorage.setItem('onboardingDesktopSlide', currentSlide);
+                updateUI();
+            } else {
+                sessionStorage.removeItem('onboardingDesktopSlide');
+                window.location.href = 'login.html';
+            }
+        }
+
+        window.onload = updateUI;
+    </script>
 </body>
 </html>

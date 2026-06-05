@@ -46,7 +46,7 @@
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
 }
 
@@ -198,7 +198,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 480px;
+    max-width: 100%;
     background-color: var(--bg-card);
     border-top: 1px solid var(--border-color);
     padding: 16px 20px;

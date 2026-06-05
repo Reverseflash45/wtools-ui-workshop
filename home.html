@@ -9,99 +9,181 @@
     <link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body>
-    <div class="home-container">
-        <header class="home-header">
-            <div class="search-bar">
-                <span>🔍</span>
-                <input type="text" placeholder="Search products...">
-            </div>
-            <a href="cart.html" style="font-size: 20px;">🛒</a>
-        </header>
 
-        <section class="hero-banner">
-            <h2>Transform Your Body Today.</h2>
-        </section>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item active">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>Home</span>
+            </a>
+            <a href="store-trending.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>Trending</span>
+            </a>
+            <a href="category-goals.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                <span>Categories</span>
+            </a>
+            <a href="wishlist.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Wishlist</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Profile</span>
+            </a>
+            <a href="transaction-history.html" class="nav-item">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span>Histori Transaksi</span>
+</a>
+        </nav>
+    </aside>
 
-        <section>
-            <div class="section-header">
-                <h3>Body Goals</h3>
-            </div>
-            <div class="horizontal-scroll">
-                <div class="card-goal" onclick="window.location.href='category-detail.html'">
-                    <div style="background: #333; height: 80px; border-radius: 8px; margin-bottom: 8px;"></div>
-                    <p>Chest & Arms</p>
+    <main class="main-content">
+        <div class="home-container">
+            <header class="home-header">
+                <div class="search-bar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" placeholder="Search products...">
                 </div>
-                <div class="card-goal" onclick="window.location.href='category-detail.html'">
-                    <div style="background: #333; height: 80px; border-radius: 8px; margin-bottom: 8px;"></div>
-                    <p>Legs & Glutes</p>
-                </div>
-                <div class="card-goal" onclick="window.location.href='category-detail.html'">
-                    <div style="background: #333; height: 80px; border-radius: 8px; margin-bottom: 8px;"></div>
-                    <p>Core & Abs</p>
-                </div>
-            </div>
-        </section>
+                <a href="cart.html" class="cart-link">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                </a>
+            </header>
 
-        <section style="margin-top: 24px;">
-            <div class="section-header">
-                <h3>Trending Products</h3>
-                <a href="store-trending.html">View All</a>
-            </div>
-            <div class="horizontal-scroll">
-                <div class="card-product" onclick="window.location.href='product-detail.html'">
-                    <div style="background: #333; height: 100px; border-radius: 8px; margin-bottom: 8px;"></div>
-                    <span style="font-size: 10px; color: var(--primary); font-weight: bold;">NEW</span>
-                    <h4>Protein Powder</h4>
-                    <p>Rp 180.000</p>
+            <div class="hero-banner-container">
+                <div class="hero-text-content">
+                    <h1 class="hero-title">Transform<br>Your Body<br><span style="color: var(--primary);">Today.</span></h1>
+                    <p class="hero-subtitle">Dapatkan panduan profesional dari WTools Academy.</p>
+                    <button class="btn btn-outline btn-hero" onclick="window.location.href='academy.html'">Buka Academy</button>
                 </div>
-                <div class="card-product" onclick="window.location.href='product-detail.html'">
-                    <div style="background: #333; height: 100px; border-radius: 8px; margin-bottom: 8px;"></div>
-                    <span style="font-size: 10px; color: var(--primary); font-weight: bold;">HOT</span>
-                    <h4>Pre-Workout</h4>
-                    <p>Rp 150.000</p>
-                </div>
-                <div class="card-product" onclick="window.location.href='product-detail.html'">
-                    <div style="background: #333; height: 100px; border-radius: 8px; margin-bottom: 8px;"></div>
-                    <h4>Creatine</h4>
-                    <p>Rp 120.000</p>
+                <div class="hero-graphic" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500&auto=format&fit=crop'); background-size: cover; background-position: center;">
                 </div>
             </div>
-        </section>
-        
-        <section style="margin-top: 24px;">
-            <div class="section-header">
-                <h3>WTools Academy</h3>
-            </div>
-            <div style="background-color: var(--bg-card); border-radius: 12px; padding: 16px;">
-                <h4 style="margin-bottom: 8px;">Complete Workout Guide</h4>
-                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Learn proper form and techniques.</p>
-                <a href="academy.html" style="color: var(--primary); font-size: 12px; font-weight: bold;">Pergi ke Akademi →</a>
-            </div>
-        </section>
 
-    </div>
+            <section class="section-wrapper">
+                <h3 class="section-title">Tips Cepat</h3>
+                <div class="quick-tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+                        </div>
+                        <h4 class="tip-title">Hitung Makro</h4>
+                        <p class="tip-desc">Takar Gizi Anda</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2s8 5.14 8 10a8 8 0 0 1-16 0c0-4.86 8-10 8-10z"></path></svg>
+                        </div>
+                        <h4 class="tip-title">Minum Air</h4>
+                        <p class="tip-desc">3 Liter / Hari</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        </div>
+                        <h4 class="tip-title">Tidur 8 Jam</h4>
+                        <p class="tip-desc">Prioritas Otot</p>
+                    </div>
+                </div>
+            </section>
 
-    <nav class="bottom-nav">
-        <a href="home.html" class="nav-item active">
-            <span>🏠</span>
-            Home
-        </a>
-        <a href="store-trending.html" class="nav-item">
-            <span>🔥</span>
-            Trending
-        </a>
-        <a href="category-goals.html" class="nav-item">
-            <span>🗂️</span>
-            Categories
-        </a>
-        <a href="wishlist.html" class="nav-item">
-            <span>❤️</span>
-            Wishlist
-        </a>
-        <a href="profile.html" class="nav-item">
-            <span>👤</span>
-            Profile
-        </a>
-    </nav>
+            <section class="section-wrapper" style="margin-top: 32px;">
+                <div class="section-header">
+                    <h3 class="section-title" style="margin-bottom: 0;">Video Terbaru</h3>
+                    <a href="academy.html" style="font-size: 12px; color: var(--primary); text-decoration: none;">Lihat Semua</a>
+                </div>
+                <div class="videos-grid">
+                    <div class="video-item" onclick="window.location.href='video-tutorial.html'">
+                        <div class="video-thumbnail-box" style="background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                            <div class="play-icon-container">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div>
+                            <span class="video-duration">12:30</span>
+                        </div>
+                        <div class="video-info">
+                            <h4 class="video-item-title">Latihan Dada Fundamental</h4>
+                            <p class="video-item-desc">Chest & Arms Focus</p>
+                        </div>
+                    </div>
+                    <div class="video-item" onclick="window.location.href='video-tutorial.html'">
+                        <div class="video-thumbnail-box" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=500&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                            <div class="play-icon-container">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div>
+                            <span class="video-duration">08:15</span>
+                        </div>
+                        <div class="video-info">
+                            <h4 class="video-item-title">Teknik Squat untuk Pemula</h4>
+                            <p class="video-item-desc">Legs & Glutes Focus</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top: 32px;">
+                <div class="section-header">
+                    <h3>Body Goals</h3>
+                </div>
+                <div class="horizontal-scroll">
+                    <div class="card-goal" onclick="window.location.href='category-detail.html'">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&auto=format&fit=crop" alt="Chest & Arms">
+                        <p>Chest & Arms</p>
+                    </div>
+                    <div class="card-goal" onclick="window.location.href='category-detail.html'">
+                        <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=300&auto=format&fit=crop" alt="Legs & Glutes">
+                        <p>Legs & Glutes</p>
+                    </div>
+                    <div class="card-goal" onclick="window.location.href='category-detail.html'">
+                        <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=300&auto=format&fit=crop" alt="Core & Abs">
+                        <p>Core & Abs</p>
+                    </div>
+                </div>
+            </section>
+
+            <section style="margin-top: 32px;">
+                <div class="section-header">
+                    <h3>Trending Products</h3>
+                    <a href="store-trending.html" style="font-size: 12px; color: var(--primary); text-decoration: none;">View All</a>
+                </div>
+                <div class="horizontal-scroll">
+                    <div class="card-product" onclick="window.location.href='product-detail.html'">
+                        <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=300&auto=format&fit=crop" alt="Protein">
+                        <span style="font-size: 10px; color: var(--primary); font-weight: bold; display: block; margin-bottom: 4px; margin-top: 8px;">NEW</span>
+                        <h4>Protein Powder</h4>
+                        <p>Rp 180.000</p>
+                    </div>
+                    <div class="card-product" onclick="window.location.href='product-detail.html'">
+                        <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=300&auto=format&fit=crop" alt="Pre-Workout">
+                        <span style="font-size: 10px; color: var(--primary); font-weight: bold; display: block; margin-bottom: 4px; margin-top: 8px;">HOT</span>
+                        <h4>Pre-Workout</h4>
+                        <p>Rp 150.000</p>
+                    </div>
+                    <div class="card-product" onclick="window.location.href='product-detail.html'">
+                        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=300&auto=format&fit=crop" alt="Creatine">
+                        <span style="font-size: 10px; opacity: 0; display: block; margin-bottom: 4px; margin-top: 8px;">NONE</span>
+                        <h4>Creatine</h4>
+                        <p>Rp 120.000</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section style="margin-top: 32px; margin-bottom: 40px;">
+                <div class="section-header">
+                    <h3>WTools Academy</h3>
+                </div>
+                <div style="background-color: var(--bg-card); border-radius: 12px; padding: 24px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 style="margin-bottom: 8px; font-size: 16px;">Complete Workout Guide</h4>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">Learn proper form and techniques.</p>
+                        <a href="academy.html" style="color: var(--primary); font-size: 13px; font-weight: bold; text-decoration: none;">Pergi ke Akademi →</a>
+                    </div>
+                    <div style="width: 100px; height: 70px; background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=150&auto=format&fit=crop'); background-size: cover; border-radius: 6px;"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
 </body>
 </html>

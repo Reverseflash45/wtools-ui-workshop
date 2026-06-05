@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,53 +7,245 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/auth.css">
+    <style>
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            width: 100vw;
+            box-sizing: border-box;
+        }
+        .login-layout {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+        .login-visual-side {
+            flex: 1;
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=1000');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
+        .visual-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: white;
+            margin: 0 0 16px 0;
+        }
+        .visual-title span {
+            color: var(--primary);
+        }
+        .visual-desc {
+            font-size: 16px;
+            color: #cccccc;
+            max-width: 460px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .login-form-side {
+            width: 480px;
+            background-color: var(--bg-card);
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            box-sizing: border-box;
+            position: relative; /* Pastikan berada di atas layer lain */
+            z-index: 10;
+        }
+        .auth-header {
+            margin-bottom: 32px;
+        }
+        .splash-logo {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0 0 6px 0;
+            letter-spacing: 1px;
+        }
+        .splash-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-dark);
+            color: white;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .forgot-link {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 24px;
+            font-weight: 600;
+            position: relative;
+            z-index: 20;
+        }
+        .forgot-link:hover {
+            color: var(--primary);
+        }
+        .btn-login-submit {
+            width: 100%;
+            padding: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            position: relative; /* Pastikan tombol di barisan depan */
+            z-index: 20;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+        .btn-google {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 20;
+        }
+        .bottom-link {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: center;
+            margin: 0;
+            position: relative;
+            z-index: 20;
+        }
+        .bottom-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .bottom-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 900px) {
+            .login-visual-side {
+                display: none;
+            }
+            .login-form-side {
+                width: 100%;
+                padding: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <main class="auth-container">
-        <div class="auth-header">
-            <h1 class="splash-logo" style="font-size: 32px;">WTOOLS</h1>
-            <p class="splash-subtitle">FitGym Store & Academy</p>
+
+    <div class="login-layout">
+        <div class="login-visual-side">
+            <h2 class="visual-title">Welcome Back to<br><span>WTOOLS Ecosystem</span></h2>
+            <p class="visual-desc">Akses seluruh modul premium FitGym Store, kelola kemajuan fisik harian, dan pelajari materi eksklusif di WTools Academy.</p>
         </div>
 
-        <form id="mainLoginForm">
-            <div class="form-group">
-                <label>Email Address</label>
-                <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+        <div class="login-form-side">
+            <header class="auth-header">
+                <h1 class="splash-logo">WTOOLS</h1>
+                <p class="splash-subtitle">FitGym Store & Academy</p>
+            </header>
+
+            <div id="mainLoginForm">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                </div>
+
+                <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+
+                <button type="button" class="btn btn-primary btn-login-submit" onclick="executeLogin()">Login</button>
             </div>
-            
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
-            </div>
 
-            <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+            <div class="divider">Or continue with</div>
 
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
+            <button type="button" class="btn btn-outline btn-google">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gsa_android_loupe_72dp.png" alt="Google Logo" width="18">
+                Continue with Google
+            </button>
 
-        <div class="divider">Or continue with</div>
-
-        <button class="btn btn-outline" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-            <img src="assets/images/icons/google.svg" alt="G" width="20">
-            Continue with Google
-        </button>
-
-        <p class="bottom-link">Don't have an account? <a href="register.html">Register</a></p>
-    </main>
+            <p class="bottom-link">Don't have an account? <a href="register.html">Register</a></p>
+            <p class="bottom-link" style="margin-top: 8px;"><a href="index.html">Kembali ke Landing Page</a></p>
+        </div>
+    </div>
 
     <script>
-        document.getElementById('mainLoginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+        function executeLogin() {
             const emailInput = document.getElementById('loginEmail').value;
             const passwordInput = document.getElementById('loginPassword').value;
+
+            // Pastikan input gak kosong
+            if (!emailInput || !passwordInput) {
+                alert("Harap isi email dan password terlebih dahulu!");
+                return;
+            }
 
             if (emailInput === 'okabe.mc2@gmail.com' && passwordInput === 'Rafirafifernandito') {
                 window.location.href = 'admin-dashboard.html';
             } else {
                 window.location.href = 'home.html';
             }
-        });
+        }
     </script>
 </body>
 </html>
