@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Quick Tips</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        body { background-color: var(--bg-dark, #121212); color: var(--text-main, #ffffff); font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; min-height: 100vh; }
+        .sidebar { width: 240px; background-color: var(--bg-card, #1e1e1e); border-right: 1px solid var(--border-color, #333); display: flex; flex-direction: column; padding: 24px 0; position: fixed; height: 100vh; z-index: 100; }
+        .sidebar-logo { font-size: 24px; font-weight: 800; color: var(--primary, #e60000); padding: 0 24px; margin-bottom: 40px; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 8px; padding: 0 16px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 8px; transition: all 0.2s ease; }
+        .nav-item:hover, .nav-item.active { background-color: rgba(230, 0, 0, 0.1); color: var(--primary); }
+        .main-content { margin-left: 240px; flex: 1; padding: 40px; }
+        
+        .page-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; border-bottom: 1px solid var(--border-color); padding-bottom: 24px; }
+        .header-title { font-size: 32px; font-weight: 800; margin: 0 0 8px 0; }
+        .header-desc { font-size: 15px; color: var(--text-muted); margin: 0; }
+        
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+        .tip-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; transition: transform 0.2s, border-color 0.2s; }
+        .tip-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .tip-icon { width: 48px; height: 48px; background: rgba(230,0,0,0.1); color: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+        .tip-title { font-size: 18px; font-weight: 800; margin: 0 0 12px 0; line-height: 1.4; }
+        .tip-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; flex: 1; }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Home</span></a>
+            <a href="article-categories.html" class="nav-item active"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Academy</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1 class="header-title">Quick Tips</h1>
+                <p class="header-desc">Saran singkat dan padat untuk memaksimalkan hasil latihanmu hari ini.</p>
+            </div>
+            <a href="article-categories.html" style="color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 14px;">← Back to Academy</a>
+        </header>
+
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">💧</div>
+                <h2 class="tip-title">Hydration is Key</h2>
+                <p class="tip-desc">Minum minimal 500ml air 30 menit sebelum memulai sesi angkat beban untuk mencegah kram otot dan kelelahan dini.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">⏱️</div>
+                <h2 class="tip-title">Mind the Rest Time</h2>
+                <p class="tip-desc">Istirahatlah 60-90 detik antar set untuk latihan hipertrofi, dan 2-3 menit untuk latihan kekuatan maksimal (Strength).</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">🥚</div>
+                <h2 class="tip-title">Post-Workout Protein</h2>
+                <p class="tip-desc">Konsumsi 20-30 gram protein dalam kurun waktu 45 menit setelah latihan untuk mempercepat pemulihan jaringan otot.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">🧘</div>
+                <h2 class="tip-title">Never Skip Stretching</h2>
+                <p class="tip-desc">Lakukan peregangan dinamis sebelum latihan dan peregangan statis setelahnya untuk menjaga fleksibilitas sendi.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">😴</div>
+                <h2 class="tip-title">Sleep Quality</h2>
+                <p class="tip-desc">Otot tidak tumbuh saat kamu berlatih, melainkan saat kamu tidur. Pastikan kamu mendapat 7-8 jam tidur berkualitas.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

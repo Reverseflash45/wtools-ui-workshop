@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Video Tutorial</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        body { background-color: var(--bg-dark, #121212); color: var(--text-main, #ffffff); font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; min-height: 100vh; }
+        .sidebar { width: 240px; background-color: var(--bg-card, #1e1e1e); border-right: 1px solid var(--border-color, #333); display: flex; flex-direction: column; padding: 24px 0; position: fixed; height: 100vh; z-index: 100; }
+        .sidebar-logo { font-size: 24px; font-weight: 800; color: var(--primary, #e60000); padding: 0 24px; margin-bottom: 40px; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 8px; padding: 0 16px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: var(--text-muted); text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 8px; transition: all 0.2s ease; }
+        .nav-item:hover, .nav-item.active { background-color: rgba(230, 0, 0, 0.1); color: var(--primary); }
+        .main-content { margin-left: 240px; flex: 1; padding: 40px; }
+        
+        .video-container { width: 100%; height: 500px; background-color: #000; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-image: url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1200'); background-size: cover; background-position: center; }
+        .play-btn { width: 80px; height: 80px; background: rgba(230,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s; backdrop-filter: blur(4px); }
+        .play-btn:hover { transform: scale(1.1); }
+        
+        .video-title { font-size: 28px; font-weight: 800; margin: 0 0 12px 0; }
+        .video-meta { display: flex; gap: 24px; color: var(--text-muted); font-size: 14px; margin-bottom: 24px; font-weight: 600; }
+        .video-desc { font-size: 15px; line-height: 1.7; color: #cccccc; margin-bottom: 48px; max-width: 800px; }
+        
+        .section-title { font-size: 20px; font-weight: 800; margin-bottom: 24px; }
+        .related-videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .related-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.2s; }
+        .related-card:hover { border-color: var(--primary); }
+        .related-thumb { width: 100%; height: 140px; background-color: #333; position: relative; }
+        .related-duration { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.8); padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+        .related-info { padding: 16px; }
+        .related-info h4 { margin: 0 0 8px 0; font-size: 15px; line-height: 1.4; }
+        .related-info p { margin: 0; font-size: 13px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Home</span></a>
+            <a href="article-categories.html" class="nav-item active"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Academy</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <a href="article-categories.html" style="color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-bottom: 24px;">← Back to Academy</a>
+        
+        <div class="video-container">
+            <div class="play-btn">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+        </div>
+
+        <h1 class="video-title">Perfect Form: Dumbbell Bench Press</h1>
+        <div class="video-meta">
+            <span>Level: Beginner</span>
+            <span>Muscle: Chest</span>
+            <span>Duration: 08:45</span>
+        </div>
+        <p class="video-desc">Pelajari teknik yang benar untuk mengeksekusi gerakan Dumbbell Bench Press guna memaksimalkan kontraksi otot dada (Pectoralis Major) dan meminimalisir risiko cedera pada persendian bahu Anda.</p>
+
+        <h3 class="section-title">Up Next</h3>
+        <div class="related-videos">
+            <div class="related-card">
+                <div class="related-thumb" style="background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=400'); background-size: cover;">
+                    <span class="related-duration">12:30</span>
+                </div>
+                <div class="related-info">
+                    <h4>Overhead Shoulder Press Mastery</h4>
+                    <p>Training • 12K views</p>
+                </div>
+            </div>
+            <div class="related-card">
+                <div class="related-thumb" style="background-image: url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400'); background-size: cover;">
+                    <span class="related-duration">05:15</span>
+                </div>
+                <div class="related-info">
+                    <h4>Bicep Curls: Avoid These Mistakes</h4>
+                    <p>Techniques • 8.5K views</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

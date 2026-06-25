@@ -6,64 +6,224 @@
     <title>WTOOLS - Delivery Details</title>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/store.css">
+    <style>
+        body {
+            background-color: var(--bg-dark, #121212);
+            color: var(--text-main, #ffffff);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background-color: var(--bg-card, #1e1e1e);
+            border-right: 1px solid var(--border-color, #333);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary, #e60000);
+            padding: 0 24px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0 16px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-muted, #aaaaaa);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .nav-item:hover, .nav-item.active {
+            background-color: rgba(230, 0, 0, 0.1);
+            color: var(--primary, #e60000);
+        }
+        .main-content {
+            margin-left: 240px;
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .checkout-wrapper {
+            width: 100%;
+            max-width: 700px;
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .btn-back {
+            color: var(--text-main);
+            background-color: var(--bg-card);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+        }
+        .checkout-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        .checkout-step .active {
+            color: var(--primary);
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .payment-option {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .payment-option.active {
+            border-color: var(--primary);
+            background-color: rgba(230,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-dark);
+            color: white;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 16px;
+            font-weight: 800;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 32px;
+            font-size: 15px;
+        }
+    </style>
 </head>
 <body>
-    <div class="store-container">
-        <header class="page-header">
-            <a href="cart.html" style="font-size: 20px;">←</a>
-            <h2 class="page-title">Delivery Details</h2>
-        </header>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg><span>Home</span></a>
+            <a href="store-trending.html" class="nav-item active"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Store</span></a>
+        </nav>
+    </aside>
 
-        <div class="checkout-step">
-            <span class="active">1 Cart</span>
-            <span>—</span>
-            <span class="active">2 Delivery</span>
-            <span>—</span>
-            <span>3 Payment</span>
+    <main class="main-content">
+        <div class="checkout-wrapper">
+            <header class="page-header">
+                <a href="cart.html" class="btn-back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+                <h2 style="margin:0; font-size: 24px; font-weight: 800;">Delivery Details</h2>
+            </header>
+
+            <div class="checkout-step">
+                <span class="active">1 Cart</span>
+                <span>—</span>
+                <span class="active">2 Delivery</span>
+                <span>—</span>
+                <span>3 Payment</span>
+            </div>
+
+            <h3 class="section-title">Delivery Method</h3>
+            <div class="payment-option active" onclick="selectDelivery(this)">
+                <input type="radio" name="delivery" checked style="margin-right: 16px;">
+                <div style="flex: 1;">
+                    <h4 style="margin: 0 0 4px 0;">Home Delivery</h4>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 13px;">2-3 business days</p>
+                </div>
+                <span style="color: var(--primary); font-weight: 800;">Rp 40.000</span>
+            </div>
+            <div class="payment-option" onclick="selectDelivery(this)">
+                <input type="radio" name="delivery" style="margin-right: 16px;">
+                <div style="flex: 1;">
+                    <h4 style="margin: 0 0 4px 0;">Store Pickup</h4>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 13px;">Available today</p>
+                </div>
+                <span style="color: var(--primary); font-weight: 800;">Free</span>
+            </div>
+
+            <h3 class="section-title" style="margin-top: 40px;">Delivery Information</h3>
+            <div style="background: var(--bg-card); padding: 32px; border-radius: 12px; border: 1px solid var(--border-color);">
+                <div style="display: flex; gap: 20px;">
+                    <div class="form-group" style="flex: 1;">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" value="Rafi Fernandito">
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label>Phone Number</label>
+                        <input type="tel" class="form-control" value="+62 812-3456-7890">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Full Address</label>
+                    <input type="text" class="form-control" value="Jalan Airlangga No.214, Surabaya Timur">
+                </div>
+                <div class="form-group">
+                    <label>Postal Code</label>
+                    <input type="text" class="form-control" value="60286">
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="window.location.href='checkout-payment.html'">Continue to Payment</button>
         </div>
+    </main>
 
-        <h3 class="section-title">Delivery Method</h3>
-        <div class="payment-option active">
-            <input type="radio" name="delivery" checked style="margin-right: 12px;">
-            <div style="flex: 1;">
-                <h4 style="font-size: 14px; margin-bottom: 4px;">Home Delivery</h4>
-                <p style="font-size: 12px; color: var(--text-muted);">2-3 business days</p>
-            </div>
-            <span style="color: var(--primary); font-weight: bold; font-size: 14px;">Rp 40.000</span>
-        </div>
-        <div class="payment-option">
-            <input type="radio" name="delivery" style="margin-right: 12px;">
-            <div style="flex: 1;">
-                <h4 style="font-size: 14px; margin-bottom: 4px;">Store Pickup</h4>
-                <p style="font-size: 12px; color: var(--text-muted);">Available today</p>
-            </div>
-            <span style="color: var(--primary); font-weight: bold; font-size: 14px;">Free</span>
-        </div>
-
-        <h3 class="section-title" style="margin-top: 24px;">Delivery Information</h3>
-        <form>
-            <div class="form-group">
-                <label>Full Name</label>
-                <input type="text" class="form-control" value="Rafi Fernandito">
-            </div>
-            <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" class="form-control" value="+62 812-3456-7890">
-            </div>
-            <div class="form-group">
-                <label>Full Address</label>
-                <input type="text" class="form-control" value="123 Fitness Street, Apt 4B Downtown">
-            </div>
-            <div class="form-group">
-                <label>Postal Code</label>
-                <input type="text" class="form-control" value="10001">
-            </div>
-        </form>
-    </div>
-
-    <div class="bottom-action-bar" style="justify-content: center;">
-        <button class="btn btn-primary" style="width: 100%;" onclick="window.location.href='checkout-payment.html'">Continue to Payment</button>
-    </div>
+    <script>
+        function selectDelivery(el) {
+            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('active'));
+            document.querySelectorAll('input[name="delivery"]').forEach(radio => radio.checked = false);
+            el.classList.add('active');
+            el.querySelector('input').checked = true;
+        }
+    </script>
 </body>
 </html>

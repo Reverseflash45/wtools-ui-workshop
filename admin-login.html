@@ -6,41 +6,78 @@
     <title>WTOOLS - Admin Portal</title>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
+    <style>
+        body { background-color: #050505; color: #ffffff; font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background-image: radial-gradient(circle at 50% 0%, #2a0000 0%, #050505 50%); }
+        .admin-login-wrapper { width: 100%; display: flex; justify-content: center; padding: 20px; box-sizing: border-box; }
+        .admin-login-card { width: 100%; max-width: 440px; background-color: var(--bg-card, #121212); border: 1px solid var(--border-color, #333); border-radius: 16px; padding: 48px 40px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8); box-sizing: border-box; }
+        .admin-logo-container { text-align: center; margin-bottom: 40px; }
+        .admin-logo-text { font-size: 32px; font-weight: 800; color: var(--primary, #e60000); margin: 0 0 8px 0; letter-spacing: 2px; }
+        .admin-logo-sub { font-size: 14px; color: var(--text-muted, #aaa); margin: 0; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--text-muted, #aaa); text-transform: uppercase; letter-spacing: 0.5px; }
+        .form-control { width: 100%; padding: 14px 16px; border-radius: 8px; border: 1px solid var(--border-color, #333); background-color: var(--bg-dark, #0a0a0a); color: white; font-size: 15px; box-sizing: border-box; transition: all 0.2s ease; }
+        .form-control:focus { outline: none; border-color: var(--primary, #e60000); box-shadow: 0 0 0 3px rgba(230, 0, 0, 0.15); }
+        .btn-admin-login { width: 100%; padding: 16px; font-weight: 800; font-size: 15px; margin-top: 16px; cursor: pointer; background-color: var(--primary, #e60000); color: white; border: none; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; transition: background-color 0.2s; }
+        .btn-admin-login:hover { background-color: #cc0000; }
+        .alert-box { display: none; background-color: rgba(220, 53, 69, 0.1); border: 1px solid rgba(220, 53, 69, 0.3); color: #ff4d4d; padding: 12px; border-radius: 8px; font-size: 13px; margin-bottom: 24px; text-align: center; font-weight: 600; }
+    </style>
 </head>
 <body class="admin-mode">
-    <div class="login-admin-wrapper">
-        <div class="login-admin-box">
-            <h1 class="sidebar-logo" style="margin-bottom: 16px;">WTOOLS<br><span style="font-size: 16px; color: var(--text-main); font-weight: 500; letter-spacing: 0;">Admin Portal</span></h1>
+    
+    <div class="admin-login-wrapper">
+        <div class="admin-login-card">
+            <div class="admin-logo-container">
+                <h1 class="admin-logo-text">WTOOLS</h1>
+                <p class="admin-logo-sub">Secure Admin Portal</p>
+            </div>
             
-            <form id="adminLoginForm">
+            <div id="loginAlert" class="alert-box">
+                Akses Ditolak! Email atau Password tidak valid.
+            </div>
+
+            <div id="adminLoginForm">
                 <div class="form-group">
-                    <label>Email Admin</label>
-                    <input type="email" id="email" class="form-control" placeholder="Masukkan email admin" required>
+                    <label>Email Administrator</label>
+                    <input type="email" id="email" class="form-control" placeholder="admin@wtools.com" required>
                 </div>
                 
-                <div class="form-group" style="margin-bottom: 32px;">
+                <div class="form-group">
                     <label>Password</label>
-                    <input type="password" id="password" class="form-control" placeholder="Masukkan password admin" required>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••" required>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login to Dashboard</button>
-            </form>
+                <button type="button" class="btn-admin-login" onclick="executeAdminLogin()">Login to Dashboard</button>
+            </div>
         </div>
     </div>
 
+    <script src="assets/js/auth.js"></script>
     <script>
-        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        function executeAdminLogin() {
             const emailInput = document.getElementById('email').value;
             const passwordInput = document.getElementById('password').value;
+            const alertBox = document.getElementById('loginAlert');
+
+            if (!emailInput || !passwordInput) {
+                alertBox.innerText = "Harap isi email dan password terlebih dahulu!";
+                alertBox.style.display = "block";
+                return;
+            }
 
             if (emailInput === 'okabe.mc2@gmail.com' && passwordInput === 'Rafirafifernandito') {
+                alertBox.style.display = "none";
+                
+                // Simpan Sesi Admin
+                localStorage.setItem('wtools_role', 'admin');
+                localStorage.setItem('wtools_email', emailInput);
+                
                 window.location.href = 'admin-dashboard.html';
             } else {
-                alert('Akses Ditolak! Email atau Password Admin tidak valid.');
+                alertBox.innerText = "Akses Ditolak! Email atau Password tidak valid.";
+                alertBox.style.display = "block";
+                document.getElementById('password').value = "";
             }
-        });
+        }
     </script>
 </body>
 </html>

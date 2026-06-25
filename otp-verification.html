@@ -6,15 +6,35 @@
     <title>WTOOLS - Verify OTP</title>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/auth.css">
+    <style>
+        body { background-color: var(--bg-dark, #121212); color: var(--text-main, #ffffff); font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=1000'); background-size: cover; background-position: center; }
+        .auth-card { background-color: var(--bg-card, #1e1e1e); border: 1px solid var(--border-color, #333); border-radius: 16px; padding: 48px; width: 100%; max-width: 460px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); position: relative; }
+        .btn-back-auth { position: absolute; top: 24px; left: 24px; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; background: rgba(255,255,255,0.05); transition: background 0.2s, color 0.2s; }
+        .btn-back-auth:hover { background: rgba(255,255,255,0.1); color: white; }
+        .auth-header { text-align: center; margin-bottom: 40px; margin-top: 16px; }
+        .auth-header h2 { font-size: 28px; font-weight: 800; margin: 0 0 12px 0; }
+        .auth-header p { font-size: 15px; color: var(--text-muted); margin: 0; line-height: 1.6; }
+        
+        .otp-container { display: flex; gap: 12px; justify-content: center; margin-bottom: 32px; }
+        .otp-input { width: 48px; height: 56px; border-radius: 8px; border: 1px solid var(--border-color); background-color: var(--bg-dark); color: white; font-size: 24px; font-weight: 800; text-align: center; }
+        .otp-input:focus { outline: none; border-color: var(--primary); }
+        
+        .btn-primary { width: 100%; padding: 16px; font-weight: 800; font-size: 15px; background-color: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .success-state { display: none; flex-direction: column; align-items: center; text-align: center; }
+        .success-icon { width: 80px; height: 80px; background-color: #28a745; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; font-size: 40px; color: white; }
+    </style>
 </head>
 <body>
-    <main class="auth-container">
+    <main class="auth-card">
         
         <div id="otp-form-state">
-            <a href="forgot-password.html" class="back-btn">←</a>
-            <h2 style="font-size: 24px; margin-bottom: 8px;">Verify Code</h2>
-            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 32px;">We sent a 6-digit code to your email.</p>
+            <a href="forgot-password.html" class="btn-back-auth"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+            
+            <div class="auth-header">
+                <h2>Verify Code</h2>
+                <p>We sent a 6-digit security code to your email address.</p>
+            </div>
 
             <div class="otp-container">
                 <input type="text" maxlength="1" class="otp-input">
@@ -25,23 +45,30 @@
                 <input type="text" maxlength="1" class="otp-input">
             </div>
 
-            <p style="text-align: center; color: var(--text-muted); font-size: 12px; margin-bottom: 32px;">Didn't receive the code? <span style="color: var(--primary);">Resend (24 s)</span></p>
+            <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 32px;">Didn't receive the code? <span style="color: var(--primary); font-weight: 700; cursor: pointer;">Resend (24s)</span></p>
 
-            <button class="btn btn-primary" onclick="showSuccess()">Verify</button>
+            <button class="btn-primary" onclick="showSuccess()">Verify Account</button>
         </div>
 
         <div id="otp-success-state" class="success-state">
-            <div class="success-icon">
-                <span style="color: white; font-size: 32px;">✓</span>
-            </div>
-            <h2 style="font-size: 20px; margin-bottom: 8px;">Verification Successful</h2>
-            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 32px;">Akun kamu berhasil diverifikasi.</p>
-            <button class="btn btn-primary" onclick="window.location.href='home.html'">Continue</button>
+            <div class="success-icon">✓</div>
+            <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 12px 0;">Verification Successful</h2>
+            <p style="color: var(--text-muted); font-size: 15px; margin: 0 0 40px 0;">Akun kamu berhasil diverifikasi dengan aman.</p>
+            <button class="btn-primary" onclick="window.location.href='home.html'">Continue to Home</button>
         </div>
 
     </main>
 
     <script>
+        // Auto-focus perpindahan input OTP
+        const inputs = document.querySelectorAll('.otp-input');
+        inputs.forEach((input, index) => {
+            input.addEventListener('keyup', (e) => {
+                if (e.target.value.length === 1 && index < inputs.length - 1) inputs[index + 1].focus();
+                if (e.key === 'Backspace' && index > 0) inputs[index - 1].focus();
+            });
+        });
+
         function showSuccess() {
             document.getElementById('otp-form-state').style.display = 'none';
             document.getElementById('otp-success-state').style.display = 'flex';

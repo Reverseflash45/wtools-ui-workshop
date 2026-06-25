@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS - Akses Ditolak</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        body {
+            background-color: #050505;
+            color: var(--text-main, #ffffff);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 50% 50%, #1a0505 0%, #050505 100%);
+        }
+        .error-container {
+            text-align: center;
+            background-color: var(--bg-card, #121212);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(230, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            max-width: 480px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .error-icon {
+            color: var(--primary, #e60000);
+            margin-bottom: 24px;
+        }
+        .error-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 16px 0;
+            letter-spacing: 0.5px;
+        }
+        .error-desc {
+            font-size: 15px;
+            color: var(--text-muted, #aaaaaa);
+            line-height: 1.6;
+            margin: 0 0 40px 0;
+        }
+        .btn-primary {
+            padding: 14px 32px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--primary, #e60000);
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <div class="error-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        </div>
+        <h1 class="error-title">Akses Ditolak</h1>
+        <p class="error-desc">Maaf, Anda tidak memiliki izin untuk melihat halaman ini atau sesi Anda telah berakhir. Silakan login kembali untuk melanjutkan.</p>
+        <a href="login.html" class="btn-primary">Kembali ke Halaman Login</a>
+    </div>
+
+</body>
+</html>

@@ -7,49 +7,45 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <style>
-        .success-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            padding: 24px;
-            text-align: center;
-        }
-        .success-icon-large {
-            width: 100px;
-            height: 100px;
-            background-color: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 32px;
-            font-size: 48px;
-            color: white;
-        }
+        body { background-color: var(--bg-dark, #121212); color: var(--text-main, #ffffff); font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .success-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 24px; padding: 60px 40px; width: 100%; max-width: 500px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+        .success-icon-large { width: 100px; height: 100px; background-color: #28a745; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 32px auto; font-size: 48px; color: white; box-shadow: 0 0 30px rgba(40, 167, 69, 0.4); }
+        .success-title { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+        .success-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 40px; }
+        .summary-box { background-color: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
+        .summary-col { text-align: left; }
+        .summary-col.right { text-align: right; }
+        .summary-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .summary-val { font-size: 16px; font-weight: 800; margin: 0; }
+        .val-primary { color: var(--primary); }
+        .btn-group { display: flex; gap: 16px; }
+        .btn { flex: 1; padding: 16px; border-radius: 8px; font-weight: 800; cursor: pointer; border: none; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-outline { background: transparent; border: 1px solid var(--border-color); color: white; }
+        .btn-outline:hover { background: rgba(255,255,255,0.05); }
+        .btn-primary { background: var(--primary); color: white; }
     </style>
 </head>
 <body>
-    <main class="success-container">
+    <main class="success-card">
         <div class="success-icon-large">✓</div>
+        <h1 class="success-title">Order Successful!</h1>
+        <p class="success-desc">Thank you for your purchase. Your items are being prepared for shipment.</p>
         
-        <h1 style="font-size: 24px; margin-bottom: 12px;">Order Successful!</h1>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 32px;">Your items are being prepared.</p>
-        
-        <div style="background-color: var(--bg-card); width: 100%; border-radius: 12px; padding: 20px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center;">
-            <div style="text-align: left;">
-                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">Order Number</p>
-                <h4 style="font-size: 14px;">#ORD-2026-001</h4>
+        <div class="summary-box">
+            <div class="summary-col">
+                <div class="summary-label">Order Number</div>
+                <h4 class="summary-val">#ORD-2026-001</h4>
             </div>
-            <div style="text-align: right;">
-                <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 4px;">Total Amount</p>
-                <h4 style="font-size: 14px; color: var(--primary);">Rp 1.191.000</h4>
+            <div class="summary-col right">
+                <div class="summary-label">Total Amount</div>
+                <h4 class="summary-val val-primary">Rp 1.191.000</h4>
             </div>
         </div>
 
-        <button class="btn btn-primary" style="margin-bottom: 16px;" onclick="window.location.href='order-tracking.html'">Track Order</button>
-        <button class="btn btn-outline" onclick="window.location.href='home.html'">Back to Home</button>
+        <div class="btn-group">
+            <button class="btn btn-outline" onclick="window.location.href='home.html'">Back to Home</button>
+            <button class="btn btn-primary" onclick="window.location.href='order-tracking.html'">Track Order</button>
+        </div>
     </main>
 </body>
 </html>

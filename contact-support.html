@@ -6,56 +6,119 @@
     <title>WTOOLS - Contact Support</title>
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/store.css">
-    <link rel="stylesheet" href="assets/css/misc.css">
+    <style>
+        body {
+            background-color: var(--bg-dark, #121212);
+            color: var(--text-main, #ffffff);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background-color: var(--bg-card, #1e1e1e);
+            border-right: 1px solid var(--border-color, #333);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0;
+            position: fixed;
+            height: 100vh;
+        }
+        .sidebar-logo { font-size: 24px; font-weight: 800; color: var(--primary); padding: 0 24px; margin-bottom: 40px; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 8px; padding: 0 16px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: var(--text-muted); text-decoration: none; font-weight: 600; border-radius: 8px; }
+        .nav-item.active { background-color: rgba(230, 0, 0, 0.1); color: var(--primary); }
+        .main-content { margin-left: 240px; flex: 1; padding: 40px; display: flex; justify-content: center; }
+        .support-wrapper { width: 100%; max-width: 800px; }
+        .page-header { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+        .btn-back { color: var(--text-main); background-color: var(--bg-card); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--border-color); text-decoration: none; }
+        
+        .support-hero { text-align: center; margin-bottom: 48px; }
+        .support-hero h2 { font-size: 32px; margin: 16px 0 8px 0; font-weight: 800; }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .contact-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .contact-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .contact-icon { font-size: 40px; margin-bottom: 16px; }
+        .contact-card h4 { font-size: 18px; margin: 0 0 8px 0; }
+        .contact-card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+        
+        .faq-promo {
+            background-color: var(--bg-card);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .btn-outline { padding: 12px 24px; border: 1px solid var(--border-color); border-radius: 8px; background: transparent; color: white; cursor: pointer; font-weight: 700; transition: background 0.2s; }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    </style>
 </head>
 <body>
-    <div style="padding: 20px;">
-        <header class="page-header">
-            <a href="help-center.html" style="font-size: 20px;">←</a>
-            <h2 class="page-title">Contact Support</h2>
-        </header>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS</div>
+        <nav class="sidebar-nav">
+            <a href="home.html" class="nav-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Home</span></a>
+            <a href="profile.html" class="nav-item active"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"></circle><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg><span>Profile</span></a>
+        </nav>
+    </aside>
 
-        <div style="text-align: center; margin-bottom: 32px; margin-top: 24px;">
-            <div style="font-size: 48px; margin-bottom: 16px; color: var(--primary);">🎧</div>
-            <h2 style="font-size: 20px; margin-bottom: 8px;">How can we help you?</h2>
-            <p style="font-size: 14px; color: var(--text-muted);">Choose your preferred method to reach our support team</p>
+    <main class="main-content">
+        <div class="support-wrapper">
+            <header class="page-header">
+                <a href="help-center.html" class="btn-back"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+                <h2 style="margin:0; font-size: 24px; font-weight: 800;">Contact Support</h2>
+            </header>
+
+            <div class="support-hero">
+                <div style="font-size: 56px; color: var(--primary);">🎧</div>
+                <h2>How can we help you?</h2>
+                <p style="color: var(--text-muted); font-size: 16px;">Choose your preferred method to reach our support team. Available 09:00 - 22:00 WIB.</p>
+            </div>
+
+            <div class="contact-grid">
+                <a href="#" class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h4>WhatsApp</h4>
+                    <p>Get quick assistance</p>
+                </a>
+                <a href="#" class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h4>Email</h4>
+                    <p>Send a detailed message</p>
+                </a>
+                <a href="#" class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h4>Live Chat</h4>
+                    <p>Talk to our agent directly</p>
+                </a>
+            </div>
+
+            <div class="faq-promo">
+                <div>
+                    <h3 style="margin: 0 0 8px 0; font-size: 20px;">❓ Need Quick Answers?</h3>
+                    <p style="margin: 0; color: var(--text-muted); font-size: 15px;">Check our FAQ section for instant solutions to common questions</p>
+                </div>
+                <button class="btn-outline" onclick="window.location.href='help-center.html'">Browse FAQ</button>
+            </div>
         </div>
-
-        <a href="#" class="contact-card">
-            <div class="contact-icon">📱</div>
-            <div class="contact-info" style="flex: 1;">
-                <h4>WhatsApp</h4>
-                <p>Get quick assistance</p>
-            </div>
-            <span style="color: var(--text-muted);">›</span>
-        </a>
-
-        <a href="#" class="contact-card">
-            <div class="contact-icon">✉️</div>
-            <div class="contact-info" style="flex: 1;">
-                <h4>Email</h4>
-                <p>Send us a detailed message</p>
-            </div>
-            <span style="color: var(--text-muted);">›</span>
-        </a>
-
-        <a href="#" class="contact-card">
-            <div class="contact-icon">💬</div>
-            <div class="contact-info" style="flex: 1;">
-                <h4>Live Chat</h4>
-                <p>Talk to our agent directly</p>
-            </div>
-            <span style="color: var(--text-muted);">›</span>
-        </a>
-
-        <div style="background-color: var(--bg-card); padding: 20px; border-radius: 12px; margin-top: 32px;">
-            <h3 style="font-size: 14px; margin-bottom: 8px;">❓ Need Quick Answers?</h3>
-            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">Check our FAQ section for instant solutions to common questions</p>
-            <button class="btn btn-outline" style="padding: 12px; font-size: 12px;" onclick="window.location.href='help-center.html'">Browse FAQ</button>
-        </div>
-        
-        <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 24px;">🕒 Available 09:00 - 22:00 WIB</p>
-    </div>
+    </main>
 </body>
 </html>
