@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WTOOLS Admin - Internal Chat</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <style>
+        body { background-color: #050505; color: #ffffff; font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        .sidebar { width: 240px; background-color: var(--bg-card, #121212); border-right: 1px solid var(--border-color, #333); display: flex; flex-direction: column; padding: 24px 0; z-index: 100; }
+        .sidebar-logo { font-size: 20px; font-weight: 800; color: var(--primary, #e60000); padding: 0 24px; margin-bottom: 40px; letter-spacing: 1px; }
+        .sidebar-logo span { color: white; font-weight: 400; font-size: 14px; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; padding: 0 16px; flex: 1; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: var(--text-muted, #aaa); text-decoration: none; font-size: 14px; font-weight: 600; border-radius: 8px; transition: all 0.2s; }
+        .nav-item:hover, .nav-item.active { background-color: rgba(230, 0, 0, 0.1); color: var(--primary); }
+        .main-content { flex: 1; display: flex; }
+        .chat-sidebar { width: 300px; background: #0a0a0a; border-right: 1px solid #333; display: flex; flex-direction: column; }
+        .chat-header { padding: 24px; border-bottom: 1px solid #333; }
+        .chat-title { font-size: 18px; font-weight: 800; margin: 0; }
+        .chat-list { flex: 1; overflow-y: auto; }
+        .chat-user { padding: 16px 24px; border-bottom: 1px solid #1a1a1a; cursor: pointer; display: flex; gap: 12px; align-items: center; transition: background 0.2s; }
+        .chat-user:hover, .chat-user.active { background: #1a1a1a; }
+        .user-avatar { width: 40px; height: 40px; border-radius: 50%; background: #333; display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; }
+        .user-info h4 { margin: 0 0 4px 0; font-size: 14px; }
+        .user-info p { margin: 0; font-size: 12px; color: #888; }
+        .chat-window { flex: 1; display: flex; flex-direction: column; background: #121212; }
+        .window-header { padding: 24px; border-bottom: 1px solid #333; display: flex; align-items: center; gap: 16px; }
+        .window-messages { flex: 1; padding: 24px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+        .msg-bubble { max-width: 60%; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.5; }
+        .msg-received { background: #222; color: white; align-self: flex-start; border-bottom-left-radius: 4px; }
+        .msg-sent { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .window-input { padding: 24px; border-top: 1px solid #333; display: flex; gap: 16px; }
+        .chat-input { flex: 1; background: #0a0a0a; border: 1px solid #333; padding: 16px; border-radius: 8px; color: white; font-size: 14px; outline: none; }
+        .chat-input:focus { border-color: var(--primary); }
+        .btn-send { background: var(--primary); color: white; border: none; padding: 0 24px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+    </style>
+    <script src="assets/js/auth.js"></script>
+    <script>checkAdminSession();</script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-logo">WTOOLS <br><span>ADMIN PORTAL</span></div>
+        <nav class="sidebar-nav">
+            <a href="admin-dashboard.html" class="nav-item">Dashboard</a>
+            <a href="admin-products.html" class="nav-item">Products</a>
+            <a href="admin-articles.html" class="nav-item">Articles</a>
+            <a href="admin-users.html" class="nav-item">Users</a>
+            <a href="admin-orders.html" class="nav-item">Orders</a>
+            <div style="height: 1px; background: #333; margin: 12px 0;"></div>
+            <a href="admin-chat-customer.html" class="nav-item">Customer Chat</a>
+            <a href="admin-chat-internal.html" class="nav-item active">Internal Chat</a>
+            <div style="height: 1px; background: #333; margin: 12px 0;"></div>
+            <a href="admin-settings.html" class="nav-item">Settings</a>
+            <a href="#" class="nav-item" onclick="executeLogout()" style="color: #ff4444;">Logout</a>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <div class="chat-sidebar">
+            <div class="chat-header">
+                <h2 class="chat-title">Staff Internal</h2>
+            </div>
+            <div class="chat-list">
+                <div class="chat-user active">
+                    <div class="user-avatar" style="background: #28a745;">B</div>
+                    <div class="user-info">
+                        <h4>Budi (Logistics)</h4>
+                        <p>Tolong cek resi pesanan...</p>
+                    </div>
+                </div>
+                <div class="chat-user">
+                    <div class="user-avatar" style="background: #007bff;">S</div>
+                    <div class="user-info">
+                        <h4>Siska (Content)</h4>
+                        <p>Artikel baru sudah di-upload.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-window">
+            <div class="window-header">
+                <div class="user-avatar" style="background: #28a745;">B</div>
+                <div>
+                    <h3 style="margin: 0 0 4px 0; font-size: 16px;">Budi (Logistics)</h3>
+                    <span style="font-size: 12px; color: #28a745;">Online</span>
+                </div>
+            </div>
+            <div class="window-messages">
+                <div class="msg-bubble msg-received">Halo admin, tolong cek resi pesanan #ORD-2026-001 ya, barangnya sudah di-pickup kurir.</div>
+                <div class="msg-bubble msg-sent">Siap Budi. Status pesanannya sudah saya update ke 'Shipped' di sistem. Thanks laporannya.</div>
+            </div>
+            <div class="window-input">
+                <input type="text" class="chat-input" placeholder="Tulis pesan internal ke Budi...">
+                <button class="btn-send">Kirim</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
