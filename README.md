@@ -2,7 +2,7 @@
 
 Proyek Akhir Workshop UI - Platform E-Commerce Alat Fitness Premium & Akademi Edukasi Kebugaran. Didesain secara spesifik untuk tampilan Desktop layar lebar (Premium Full-Screen UI).
 
-🔗 **Live Demo:** https://github.com/Reverseflash45/wtools-ui-workshop
+🔗 **Live Demo:** [https://github.com/Reverseflash45/wtools-ui-workshop](https://wtools-lovat.vercel.app/onboarding.html)
 
 ---
 
